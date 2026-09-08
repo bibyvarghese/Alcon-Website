@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#0a0a0a] text-white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALCON </title>
+    <link rel="icon" type="image/png" href="images/logo2.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0a0a0a',
+                        light: '#f5f5f5',
+                        muted: '#737373',
+                    }
+                }
+            }
+        }
+
+
+    </script>
+    <style>
+
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        /* Concrete Film Grain Overlay - Bushed to top layer */
+        .concrete-grain {
+            position: fixed;
+            inset: 0;
+            z-index: 20; /* Raised from 1 to 20 to sit on top of everything */
+            pointer-events: none;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyMDAgMjAwJz48ZmlsdGVyIGlkPSdub2lzZSc+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuODUnIG51bU9jdGF2ZXM9JzMnIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9InVybCgjbm9pc2UpIi8+PC9zdmc+");
+        }
+
+        /* Structural Sub-Grid - Brushed to top layer */
+        .structural-grid {
+            position: fixed;
+            inset: 0;
+            z-index: 21; /* Raised from 2 to 21 so it sits perfectly over the grain and images */
+            pointer-events: none;
+            background-size: 10vw 10vw;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* --- ME DIGITAL INTERTIA MOMENTUM LAYOUT ENGINE --- */
+        #smooth-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 10;
+        }
+        #smooth-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            pointer-events: auto;
+            will-change: transform;
+        }
+
+        .skew-container {
+            will-change: transform;
+            transform-origin: center center;
+        }
+
+        .variable-weight {
+            will-change: font-variation-settings;
+            transition: font-variation-settings 0.1s linear;
+        }
+
+        /* Architectural Parallax Windows */
+        .parallax-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+        .parallax-img {
+            will-change: transform;
+            transform: scale(1.25);
+        }
+
+
+
+        /* Agency-style smooth reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        .img-zoom-container { overflow: hidden; border-radius: 0.5rem; }
+        .img-zoom { transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
+        .group:hover .img-zoom { transform: scale(1.08); }
+
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+        }
+
+        #scroll-zoom-text {
+            display: inline-block;
+            transform-origin: left center;
+            will-change: transform, letter-spacing;
+        }
+
+        /* Nav Links */
+        .escofet-nav-link { position: relative; transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .escofet-nav-link::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 1px;
+            background-color: currentColor; transform: scaleX(0); transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .escofet-nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+        
+        .menu-overlay { clip-path: inset(0 0 100% 0); transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .menu-overlay.open { clip-path: inset(0 0 0 0); }
+
+        /* Torch Lens with SVG Filter Binding */
+        #torch-light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80px; 
+            height: 80px;
+            background: #ffffff;
+            border-radius: 50%;
+            pointer-events: none; 
+            z-index: 60; 
+            mix-blend-mode: difference; 
+            transform: translate(-50%, -50%); 
+            will-change: left, top, filter;
+            opacity: 0; 
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: url(#torch-glitch);
+        }
+
+        @media (hover: none) { #torch-light { display: none !important; } }
+
+        /* --- ADDED: Fading Company Photo Background --- */
+        .company-hero-bg {
+            background: 
+                linear-gradient(
+                    to bottom, 
+                    rgba(10, 10, 10, 0.3) 0%,   /* Slight dark tint at top to keep white text readable */
+                    rgba(10, 10, 10, 0.7) 60%,  /* Starts fading heavier midway down */
+                    rgba(10, 10, 10, 1) 95%     /* Blends perfectly into the #0a0a0a background at the bottom */
+                ),
+                url('images/hero-bg2.jpg'); /* REPLACE WITH YOUR IMAGE PATH */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+	    box-shadow: 0 20px 20px 10px #0a0a0a;
+        }
+
+	/* --- Fading Background for Hero 2 (Fixed Color Match) --- */
+        .hero2-bg {
+            background: 
+                linear-gradient(
+                    to bottom, 
+                    rgba(10, 10, 10, 1) 0%,      /* Solid deep black at the edge */
+                    rgba(10, 10, 10, 0.4) 20%,   /* Slowly melts to show the image */
+                    rgba(10, 10, 10, 0.8) 80%,
+		    rgba(10, 10, 10, 1) 95%,   /* Keeps it dim for readable text */
+                    rgba(10, 10, 10, 1) 100%     /* Fades completely out at the bottom */
+                ),
+                url('images/hero2-bg.jpg'); /* Keep your actual image file name here */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+:root {
+    --bench-color: #e0e0e0; /* White/Concrete color */
+    --text-color: #333;
+  }
+
+  .scene {
+    width: 300px;
+    height: 300px;
+    perspective: 800px;
+    margin: 100px auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* The 3D Bench Structure */
+  .bench {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.1s linear;
+  }
+
+  .face {
+    position: absolute;
+    background: var(--bench-color);
+    border: 1px solid #ccc;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+  }
+
+  /* Bench Dimensions */
+  .top { width: 200px; height: 100px; transform: rotateX(90deg) translateZ(50px); }
+  .front { width: 200px; height: 100px; transform: translateZ(50px); }
+  .back { width: 200px; height: 100px; transform: rotateY(180deg) translateZ(50px); }
+
+  /* Rounded Text Ring */
+  .text-ring {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.1s linear;
+  }
+
+  .text-char {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform-origin: 0 150px; /* Radius */
+    font-weight: bold;
+    color: var(--text-color);
+    text-transform: uppercase;
+  }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-white selection:text-black overflow-x-hidden">
+
+    <svg class="hidden">
+        <defs>
+            <filter id="torch-glitch">
+                <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="1" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" id="torch-displacement" />
+            </filter>
+        </defs>
+    </svg>
+
+    <div class="concrete-grain"></div>
+    <div class="structural-grid"></div>
+
+    <div id="torch-light"></div>
+
+    <<header class="fixed top-0 left-0 w-full z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/10 px-6 md:px-12 py-3 transition-all duration-300 pointer-events-none" id="header">
+        <div class="max-w-screen-2xl mx-auto flex justify-between items-center h-16 pointer-events-auto">
+            <div class="flex items-center">
+    <a href="#" class="block transition-transform duration-300 hover:scale-105">
+        <img src="images\logo.png" alt="Alcon Logo" class="h-10 md:h-14 w-auto object-contain">
+    </a>
+</div>
+            
+            <nav class="hidden md:flex items-center gap-12 text-[11px] font-medium tracking-[0.25em] uppercase">
+                <a href="#about" class="escofet-nav-link text-white hover:text-muted">About Us</a>
+                <a href="#products" class="escofet-nav-link text-white hover:text-muted">Capabilities</a>
+                <a href="#portfolio" class="escofet-nav-link text-white hover:text-muted">Projects</a>
+                <a href="#contact" class="escofet-nav-link text-white hover:text-muted">Contact</a>
+            </nav>
+            
+            <div class="flex items-center gap-6">
+                <a href="#contact" class="hidden lg:inline-flex text-[11px] font-medium uppercase tracking-[0.2em] bg-white text-black px-5 py-2.5 rounded-none hover:bg-neutral-200 transition-colors">
+                    Inquire
+                </a>
+                <button id="menu-toggle" class="group flex flex-col justify-center items-end gap-1.5 w-8 h-8 focus:outline-none relative z-50" aria-label="Toggle Menu">
+                    <span id="bar-top" class="w-6 h-[1.5px] bg-white transition-all duration-300 transform origin-right"></span>
+                    <span id="bar-bottom" class="w-4 group-hover:w-6 h-[1.5px] bg-white transition-all duration-300 transform origin-right"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="fullscreen-menu" class="menu-overlay fixed inset-0 bg-[#0d0d0d] z-40 flex flex-col justify-between p-8 md:p-24">
+        <div class="absolute inset-0 grid grid-cols-4 pointer-events-none opacity-5">
+            <div class="border-r border-white h-full"></div>
+            <div class="border-r border-white h-full"></div>
+            <div class="border-r border-white h-full"></div>
+            <div></div>
+        </div>
+        
+        <div class="w-full max-w-screen-2xl mx-auto my-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative z-10">
+            <div class="hidden md:block md:col-span-4 text-left border-l border-white/10 pl-8">
+                <p class="text-xs uppercase tracking-[0.3em] text-muted mb-4">Core Focus</p>
+                <p class="text-sm font-light text-neutral-400 max-w-xs leading-relaxed">
+                    Sculpting architectural spatiality through high-performance GRC panels, custom urban landscape profiles, and structural casting.
+                </p>
+            </div>
+            
+            <nav class="md:col-span-8 flex flex-col gap-4 text-left">
+                <p class="text-[10px] uppercase tracking-[0.4em] text-muted mb-2 block md:hidden">Index</p>
+                <a href="#about" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">About</a>
+                <a href="#products" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Capabilities</a>
+                <a href="#portfolio" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Projects</a>
+                <a href="#contact" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Contact</a>
+            </nav>
+        </div>
+
+        <div class="w-full max-w-screen-2xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center border-t border-white/10 pt-8 text-[10px] uppercase tracking-[0.25em] text-muted relative z-10 gap-4">
+            <p>© 2026 Alcon Concrete Products LLC.</p>
+            <div class="flex gap-8">
+                <a href="mailto:sales@alcon.ae" class="hover:text-white transition-colors">sales@alcon.ae</a>
+                <span>DIC, Dubai</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <div class="concrete-grain"></div>
+            <div class="structural-grid"></div>
+
+           <section class="skew-container company-hero-bg relative min-h-screen flex flex-col justify-center px-6 pt-28">
+                <div class="max-w-screen-2xl mx-auto w-full z-10 relative">
+                    <h1 class="font-display font-medium uppercase tracking-tighter text-[13vw] md:text-[10vw] leading-[0.85] reveal variable-weight">
+                        The Art Of <br>
+                        Concrete <br>
+                        <span class="text-outline">Redefined.</span>
+                    </h1>
+                    <div class="mt-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 reveal delay-200">
+                        <p class="max-w-md text-lg text-muted font-light leading-relaxed relative z-10">
+                            We are disruptors. Pushing the boundaries of structural design, UHPC, and architectural GRC to create landmarks that stand the test of time.
+                        </p>
+                        <div class="flex items-center gap-4 text-sm uppercase tracking-widest font-medium">
+                            <span>Scroll to explore</span>
+                            <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute top-1/2 right-0 -translate-y-1/2 w-1/2 h-[80vh] bg-gradient-to-l from-white/5 to-transparent blur-3xl -z-10 rounded-full"></div>
+            </section>
+
+           <section id="about" class="skew-container hero2-bg relative min-h-screen flex flex-col justify-center px-6 pt-28">
+                <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16">
+                    <div class="md:col-span-4 reveal relative z-10">
+                        <h2 class="text-sm font-medium uppercase tracking-widest text-muted mb-4">About Us</h2>
+                        <p class="font-display text-4xl font-medium leading-tight mb-8 variable-weight">
+                            A leading precast concrete manufacturer.
+                        </p>
+                        <p class="text-muted font-light leading-relaxed mb-8">
+                            The name Alcon is synonymous with bold concept designs of innumerable architectural precast elements. From concept to design, fabrication, processing, and delivery, it is an enthralling experience for our in-house engineers to execute new shapes, sizes, and finishes on an everyday basis.
+                        </p>
+                    </div>
+                    <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-12 relative z-10">
+                        <div class="reveal delay-100">
+                            <h3 class="text-xl font-display font-medium mb-4 variable-weight">Our Mission</h3>
+                            <p class="text-muted font-light leading-relaxed mb-8">
+                                To offer the best products and services, meeting international specifications to ensure customer delight. We take on projects of any size, creating a viable design, manufacturing, delivering, and installing the products.
+                            </p>
+                            <h3 class="text-xl font-display font-medium mb-4 variable-weight">Core Values</h3>
+                            <ul class="text-muted font-light leading-relaxed space-y-2">
+                                <li><strong class="text-white">A</strong>nalytic.</li>
+                                <li><strong class="text-white">L</strong>ongevity.</li>
+                                <li><strong class="text-white">C</strong>reative.</li>
+                                <li><strong class="text-white">O</strong>ptimize.</li>
+                                <li><strong class="text-white">N</strong>atural.</li>
+                            </ul>
+                        </div>
+                        <div class="reveal delay-200">
+                            <h3 class="text-xl font-display font-medium mb-4 variable-weight">Why Choose Us?</h3>
+                            <p class="text-muted font-light leading-relaxed mb-6">
+                                ALCON CONCRETE is known for exceptional quality products and vibrant designs in a multitude of colors and textures which make any streetscape a standout.
+                            </p>
+                            <ul class="space-y-4 text-sm uppercase tracking-widest">
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-[#444]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    High-Quality Production
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-[#444]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    Best Technical Advice
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-[#444]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    Time Bound Delivery
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-[#444]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    After Sales & Warranty
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="portfolio" class="skew-container py-40 px-6 relative z-10">
+                <div class="max-w-screen-2xl mx-auto">
+                    <div class="flex justify-between items-end mb-24 reveal">
+                        <h2 class="font-display text-6xl md:text-8xl font-medium tracking-tighter uppercase variable-weight">Our Projects</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 md:gap-y-32 relative z-10">
+                        <a href="urban-landscape.html" class="group block reveal relative">
+                            <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
+                                <img src="images\ampi2.jpg" alt="Barbeque Counter" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">Marsa Al Seef</h3>
+                                    <p class="text-muted text-sm uppercase tracking-widest">Landscape Elements & Urban Design</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="fiber-glass.html" class="group block reveal md:mt-32 relative">
+                            <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
+    <img src="images\planter1.jpg" alt="Planter Pot" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+</div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">Al Ain Museum</h3>
+                                    <p class="text-muted text-sm uppercase tracking-widest">Architectural GRC Planter</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="architectural-precast.html" class="group block reveal relative">
+                            <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
+                                <img src="images\Seat.jpg" alt="Seat" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">Watch Roastery Restaurant,Dubai</h3>
+                                    <p class="text-muted text-sm uppercase tracking-widest">Alcocrete™  Furniture</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="industrial-precast.html" class="group block reveal even:md:mt-32 relative">
+                            <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
+                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">GRC Wall Cladding @ Jebel Ali</h3>
+                                    <p class="text-muted text-sm uppercase tracking-widest">GRC Wall Cladding</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                </div>
+                            </div>
+                        </a>
+			
+			<a href="industrial-precast.html" class="group block reveal even:md:mt-32 relative">
+                            <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
+                                <img src="images/play.jpg" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">Foosball Table</h3>
+                                    <p class="text-muted text-sm uppercase tracking-widest">Play Elements</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                </div>
+                            </div>
+                        </a>
+			<a href="industrial-precast.html" class="group block reveal even:md:mt-32 relative">
+                            <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
+                                <img src="images/wood.jpg" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight"></h3>
+                                    <p class="text-muted text-sm uppercase tracking-widest">GRC Wall Cladding</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                </div>
+                            </div>
+			</a>
+                        <a href="industrial-precast.html" class="group block reveal even:md:mt-32 relative">
+                            <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
+                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">GRC Wall Cladding @ Jebel Ali</h3>
+                                    <p class="text-muted text-sm uppercase tracking-widest">GRC Wall Cladding</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                </div>
+                            </div>
+			</a>
+                        <a href="industrial-precast.html" class="group block reveal even:md:mt-32 relative">
+                            <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
+                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">GRC Wall Cladding @ Jebel Ali</h3>
+                                    <p class="text-muted text-sm uppercase tracking-widest">GRC Wall Cladding</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                </div>
+                            </div>
+			</a></a>
+                        <a href="industrial-precast.html" class="group block reveal even:md:mt-32 relative">
+                            <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
+                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">GRC Wall Cladding @ Jebel Ali</h3>
+                                    <p class="text-muted text-sm uppercase tracking-widest">GRC Wall Cladding</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                </div>
+                            </div>
+			</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="products" class="py-32 px-6 bg-[#111] relative z-10 skew-container">
+                <div class="max-w-screen-2xl mx-auto">
+                    <h2 class="font-display text-sm font-medium uppercase tracking-widest text-muted mb-16 reveal relative z-10">Our Capabilities</h2>
+                    
+                    <div class="border-t border-white/10 relative z-10">
+                        <a href="urban_landscape_gallery.html" class="block py-12 border-b border-white/10 group hover:bg-white/[0.03] transition-colors reveal">
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                                <div class="md:col-span-1 text-muted font-display text-xl">01.</div>
+                                <div class="md:col-span-3">
+                                    <h3 class="text-3xl font-display font-medium group-hover:translate-x-2 transition-transform duration-300 variable-weight">Urban Landscape</h3>
+                                    <p class="text-xs uppercase tracking-widest text-white mt-4 opacity-70 group-hover:opacity-100 transition-opacity">Street Furniture</p>
+                                </div>
+                                <div class="md:col-span-7">
+                                    <p class="text-muted font-light leading-relaxed mb-4 group-hover:text-gray-300 transition-colors">Architectural pieces that lift the mood of the community. Cast stone seats blend into natural settings coming in various forms like square, circular, and rectangular.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Benches</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Seats</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Bollards</span>
+                                    </div>
+                                </div>
+                                <div class="md:col-span-1 flex justify-start md:justify-end mt-4 md:mt-0">
+                                    <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="architectural_precast_gallery.html" class="block py-12 border-b border-white/10 group hover:bg-white/[0.03] transition-colors reveal delay-100">
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                                <div class="md:col-span-1 text-muted font-display text-xl">02.</div>
+                                <div class="md:col-span-3">
+                                    <h3 class="text-3xl font-display font-medium group-hover:translate-x-2 transition-transform duration-300 variable-weight">Architectural Precast</h3>
+                                    <p class="text-xs uppercase tracking-widest text-white mt-4 opacity-70 group-hover:opacity-100 transition-opacity">Aesthetic Elements</p>
+                                </div>
+                                <div class="md:col-span-7">
+                                    <p class="text-muted font-light leading-relaxed mb-4 group-hover:text-gray-300 transition-colors">Cast and cured in our factory using precise moulds. Manufactured under controlled conditions enabling strict quality control for structural aesthetics.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Steps & Risers</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Coping Stones</span>
+                                    </div>
+                                </div>
+                                <div class="md:col-span-1 flex justify-start md:justify-end mt-4 md:mt-0">
+                                    <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="industrial_precast_gallery.html" class="block py-12 border-b border-white/10 group hover:bg-white/[0.03] transition-colors reveal delay-200">
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                                <div class="md:col-span-1 text-muted font-display text-xl">03.</div>
+                                <div class="md:col-span-3">
+                                    <h3 class="text-3xl font-display font-medium group-hover:translate-x-2 transition-transform duration-300 variable-weight">Industrial Precast</h3>
+                                    <p class="text-xs uppercase tracking-widest text-white mt-4 opacity-70 group-hover:opacity-100 transition-opacity">Heavy Infrastructure</p>
+                                </div>
+                                <div class="md:col-span-7">
+                                    <p class="text-muted font-light leading-relaxed mb-4 group-hover:text-gray-300 transition-colors">Serving power generation, water distribution, and sewage disposal sectors. We provide robust, high-load precast components customized with client logos and lettering.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Manholes</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Cable Troughs</span>
+                                    </div>
+                                </div>
+                                <div class="md:col-span-1 flex justify-start md:justify-end mt-4 md:mt-0">
+                                    <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="fiber_glass_gallery.html" class="block py-12 border-b border-white/10 group hover:bg-white/[0.03] transition-colors reveal delay-300">
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                                <div class="md:col-span-1 text-muted font-display text-xl">04.</div>
+                                <div class="md:col-span-3">
+                                    <h3 class="text-3xl font-display font-medium group-hover:translate-x-2 transition-transform duration-300 variable-weight">Fiber Glass</h3>
+                                    <p class="text-xs uppercase tracking-widest text-white mt-4 opacity-70 group-hover:opacity-100 transition-opacity">GRC / GRP Composites</p>
+                                </div>
+                                <div class="md:col-span-7">
+                                    <p class="text-muted font-light leading-relaxed mb-4 group-hover:text-gray-300 transition-colors">As part of our continued innovation, we shape how buildings are perceived through ultra-lightweight, high-strength decorative facades, complex architectural screens, and claddings.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Facade Engineering</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Decorative Screens</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">GRG Elements</span>
+                                    </div>
+                                </div>
+                                <div class="md:col-span-1 flex justify-start md:justify-end mt-4 md:mt-0">
+                                    <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="paving_tiles_gallery.html" class="block py-12 border-b border-white/10 group hover:bg-white/[0.03] transition-colors reveal delay-300">
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                                <div class="md:col-span-1 text-muted font-display text-xl">05.</div>
+                                <div class="md:col-span-3">
+                                    <h3 class="text-3xl font-display font-medium group-hover:translate-x-2 transition-transform duration-300 variable-weight">Paving Tiles</h3>
+                                    <p class="text-xs uppercase tracking-widest text-white mt-4 opacity-70 group-hover:opacity-100 transition-opacity">Surfaces & Textures</p>
+                                </div>
+                                <div class="md:col-span-7">
+                                    <p class="text-muted font-light leading-relaxed mb-4 group-hover:text-gray-300 transition-colors">Wet cast tiles with natural architectural finishes matching granite or natural stone slates. Available in Polished, Honed, Acid-etched, and Shot Blasted profiles.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Tactile Pavers</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Stepping Stones</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Plain / Reinforced</span>
+                                    </div>
+                                </div>
+                                <div class="md:col-span-1 flex justify-start md:justify-end mt-4 md:mt-0">
+                                    <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+<!-- Footer / Contact Section -->
+            <footer id="contact" class="skew-container py-32 px-6 relative overflow-hidden z-10 border-t border-white/10">
+                <div class="max-w-screen-2xl mx-auto flex flex-col items-center text-center z-10 relative">
+                    <h2 class="font-display text-[10vw] md:text-[8vw] font-medium tracking-tighter uppercase leading-none mb-8 reveal variable-weight">
+                        Let's Build.
+                    </h2>
+                    <p class="text-xl text-muted mb-12 reveal delay-100">Start your next iconic project with Alcon.</p>
+                    
+                    <!-- Main Email CTA Button -->
+                    <a href="mailto:sales@alcon.ae" 
+   class="reveal delay-200 inline-flex items-center justify-center bg-white text-black font-medium text-sm uppercase tracking-widest px-10 py-5 rounded-full hover:scale-105 transition-transform duration-300 relative z-20">
+    sales@alcon.ae
+</a>
+                </div>
+                
+                <div class="max-w-screen-2xl mx-auto mt-32 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted uppercase tracking-widest reveal relative z-10">
+                    <p>&copy; 2026 Alcon Concrete Products LLC.</p>
+                    <div class="flex flex-wrap items-center gap-6">
+                        <!-- Live Google Maps Location Link -->
+                        <a href="https://www.google.com/maps/search/?api=1&query=Alcon+Concrete+Products+LLC+Dubai+Industrial+City" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="hover:text-white transition-colors relative z-20 flex items-center gap-1.5 group">
+                            <svg class="w-3.5 h-3.5 text-muted group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Dubai Industrial City
+                        </a>
+
+                        <!-- Direct Phone Dialer Link -->
+                        <a href="tel:+97145474474" 
+                           class="hover:text-white transition-colors relative z-20 flex items-center gap-1.5 group">
+                            <svg class="w-3.5 h-3.5 text-muted group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            +971 4 5474474
+                        </a>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const torch = document.getElementById('torch-light');
+            const torchDisplacement = document.getElementById('torch-displacement');
+            
+            // --- PHYSICS LAYOUT COORDINATES FOR INVERSION MAGNET DELAY ---
+            let mouseX = 0, mouseY = 0;      
+            let lensX = 0, lensY = 0;        
+            let lastMouseX = 0, lastMouseY = 0;
+            let currentGlitchScale = 0;
+            const lensEase = 0.12;            
+
+            document.addEventListener('mousemove', (e) => {
+                if(torch.style.opacity === '0' || torch.style.opacity === '') {
+                    torch.style.opacity = '1';
+                }
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            document.addEventListener('mouseleave', () => { torch.style.opacity = '0'; });
+
+            // --- ME DIGITAL INSTANTIATION LOGIC VARIABLES ---
+            const smoothContent = document.getElementById('smooth-content');
+            const parallaxImages = document.querySelectorAll('.parallax-img');
+            const skewContainers = document.querySelectorAll('.skew-container');
+            const variableFonts = document.querySelectorAll('.variable-weight');
+            
+            let currentY = 0;
+            let targetY = 0;
+            const scrollEase = 0.075; 
+
+            const resizeObserver = new ResizeObserver(() => {
+                document.body.style.height = `${smoothContent.getBoundingClientRect().height}px`;
+            });
+            resizeObserver.observe(smoothContent);
+
+            // --- CENTRALIZED ENGINE TICK FRAME ---
+            function processUnifiedRenderLoop() {
+                // 1. Mouse Velocity Calculation for Glitch Lens
+                let dx = mouseX - lastMouseX;
+                let dy = mouseY - lastMouseY;
+                let mouseSpeed = Math.sqrt(dx*dx + dy*dy);
+                lastMouseX = mouseX;
+                lastMouseY = mouseY;
+
+                // Smooth out the glitch scale targeting
+                let targetGlitch = Math.min(mouseSpeed * 1.5, 45); 
+                currentGlitchScale += (targetGlitch - currentGlitchScale) * 0.15;
+                if(torchDisplacement) torchDisplacement.setAttribute('scale', currentGlitchScale);
+
+                // Linearly Interpolate Lens positions
+                lensX += (mouseX - lensX) * lensEase;
+                lensY += (mouseY - lensY) * lensEase;
+                torch.style.left = `${lensX}px`;
+                torch.style.top = `${lensY}px`;
+
+                // 2. Linearly Interpolate Scroll Track positions
+                targetY = window.scrollY;
+                currentY += (targetY - currentY) * scrollEase;
+                
+                let scrollVelocity = targetY - currentY;
+                let calculatedSkew = Math.max(-4, Math.min(4, scrollVelocity * 0.015)); 
+                
+                // Variable Font Axis Shifting based on speed
+                let fontWeight = 400 + Math.min(Math.abs(scrollVelocity * 5), 300);
+
+                smoothContent.style.transform = `translate3d(0, -${currentY}px, 0)`;
+
+                skewContainers.forEach(container => {
+                    container.style.transform = `skewY(${calculatedSkew * 0.4}deg)`;
+                });
+
+                variableFonts.forEach(fontEl => {
+                    fontEl.style.fontVariationSettings = `"wght" ${fontWeight}`;
+                });
+
+                const viewHeight = window.innerHeight;
+
+                // Parallax Image Translations inside moving frame bounds
+                parallaxImages.forEach(img => {
+                    const parentWrap = img.parentElement;
+                    const rect = parentWrap.getBoundingClientRect();
+                    
+                    if (rect.top < viewHeight && rect.bottom > 0) {
+                        const relativeShift = ((rect.top - viewHeight) / (viewHeight + rect.height)) * 40;
+                        img.style.transform = `scale(1.25) translate3d(0, ${relativeShift}px, 0)`;
+                    }
+                });
+
+                requestAnimationFrame(processUnifiedRenderLoop);
+            }
+            requestAnimationFrame(processUnifiedRenderLoop);
+
+            // Anchor links navigation route conversion
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        const absoluteOffset = targetEl.getBoundingClientRect().top + currentY;
+                        window.scrollTo({ top: absoluteOffset, behavior: 'auto' });
+                        if (document.getElementById('fullscreen-menu').classList.contains('open')) {
+                            toggleMenu();
+                        }
+                    }
+                });
+            });
+
+            // Intersection Observer for sub reveals
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.12 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+
+            // Escofet Fullscreen Menu Trigger Logic
+            const menuToggle = document.getElementById('menu-toggle');
+            const fullscreenMenu = document.getElementById('fullscreen-menu');
+            const barTop = document.getElementById('bar-top');
+            const barBottom = document.getElementById('bar-bottom');
+
+            function toggleMenu() {
+                const isOpen = fullscreenMenu.classList.toggle('open');
+                if (isOpen) {
+                    barTop.style.transform = 'rotate(-45deg) translate(-2px, 4px)';
+                    barBottom.style.transform = 'rotate(45deg) translate(-2px, -4px)';
+                    barBottom.style.width = '24px';
+                } else {
+                    barTop.style.transform = 'none';
+                    barBottom.style.transform = 'none';
+                    barBottom.style.width = '16px';
+                }
+            }
+            menuToggle.addEventListener('click', toggleMenu);
+        });
+    </script>
+</body>
+</html>

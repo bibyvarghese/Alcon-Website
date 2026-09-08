@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#0a0a0a] text-white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paving Tiles | ALCON</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0a0a0a',
+                        light: '#f5f5f5',
+                        muted: '#737373',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+
+        .img-zoom-container { overflow: hidden; border-radius: 0.5rem; }
+        .img-zoom { transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
+        .group:hover .img-zoom { transform: scale(1.08); }
+        .text-outline { color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); }
+    </style>
+</head>
+<body class="antialiased selection:bg-white selection:text-black overflow-x-hidden">
+
+    <header class="fixed top-0 w-full z-50 mix-blend-difference px-6 py-8 transition-all duration-300" id="header">
+        <div class="max-w-screen-2xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="font-display text-2xl font-bold tracking-tighter uppercase text-white flex items-center gap-4 group">
+                <svg class="w-6 h-6 transform group-hover:-translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Alcon.
+            </a>
+            <a href="index.html#contact" class="hidden md:inline-flex text-sm font-medium uppercase tracking-wider border-b border-white pb-1 hover:text-muted hover:border-muted transition-colors text-white">
+                Let's Talk
+            </a>
+        </div>
+    </header>
+
+    <section class="relative min-h-[60vh] flex flex-col justify-end px-6 pb-20 pt-40 border-b border-white/10">
+        <div class="max-w-screen-2xl mx-auto w-full z-10">
+            <h1 class="font-display font-medium uppercase tracking-tighter text-[10vw] md:text-[8vw] leading-[0.85] reveal">
+                Surfaces & <br>
+                <span class="text-outline">Textures.</span>
+            </h1>
+            <div class="mt-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 reveal delay-100">
+                <p class="max-w-xl text-lg text-muted font-light leading-relaxed">
+                    Wet cast tiles yielding natural stone-like finishes. Available in polished, honed, acid-etched, and shot-blasted textures for expansive public realms.
+                </p>
+                <div class="flex flex-wrap gap-2 text-xs uppercase tracking-widest">
+                    <span class="px-4 py-2 border border-white/20 rounded-full">Tactile</span>
+                    <span class="px-4 py-2 border border-white/20 rounded-full">Shot-Blasted</span>
+                    <span class="px-4 py-2 border border-white/20 rounded-full">Honed</span>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-0 right-0 w-1/2 h-[60vh] bg-gradient-to-l from-white/5 to-transparent blur-3xl -z-10 rounded-full"></div>
+    </section>
+
+    <section class="py-32 px-6">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 md:gap-y-32">
+                
+                <div class="group block reveal">
+                    <div class="img-zoom-container aspect-[4/3] mb-8 bg-[#111]">
+                        <img src="https://images.unsplash.com/photo-1584985226164-8395ea2e88a3?auto=format&fit=crop&w=1200&q=80" alt="Textured Paving" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors">Public Realm Paving</h3>
+                        <p class="text-muted text-sm uppercase tracking-widest">Shot-Blasted Finish</p>
+                    </div>
+                </div>
+
+                <div class="group block reveal md:mt-32">
+                    <div class="img-zoom-container aspect-[4/5] mb-8 bg-[#111]">
+                        <img src="https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=1200&q=80" alt="Stepping Stones" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors">Stepping Stones</h3>
+                        <p class="text-muted text-sm uppercase tracking-widest">Acid-Etched Surface</p>
+                    </div>
+                </div>
+
+                <div class="group block reveal">
+                    <div class="img-zoom-container aspect-[4/5] mb-8 bg-[#111]">
+                        <img src="https://images.unsplash.com/photo-1533575349875-5f33333da188?auto=format&fit=crop&w=1200&q=80" alt="Tactile Tiles" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors">Accessibility Tactiles</h3>
+                        <p class="text-muted text-sm uppercase tracking-widest">High-Contrast Directional</p>
+                    </div>
+                </div>
+
+                <div class="group block reveal md:mt-32">
+                    <div class="img-zoom-container aspect-[4/3] mb-8 bg-[#111]">
+                        <img src="https://images.unsplash.com/photo-1497215848529-6c8fbf4c5401?auto=format&fit=crop&w=1200&q=80" alt="Polished Concrete Floor" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors">Large Format Slabs</h3>
+                        <p class="text-muted text-sm uppercase tracking-widest">Polished Terrazzo Effect</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 border-t border-white/10">
+        <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted uppercase tracking-widest">
+            <p>&copy; 2026 Alcon Concrete Products LLC.</p>
+            <a href="index.html" class="hover:text-white transition-colors border-b border-white/20 pb-1">Return to Main Site</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: '0px', threshold: 0.15 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

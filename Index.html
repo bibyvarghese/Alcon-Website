@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALCON </title>
+    <meta name="description" content="Alcon Concrete Products LLC manufactures architectural precast, urban landscape elements, GRC, GRP, and paving solutions in Dubai, UAE.">
+    <link rel="canonical" href="https://www.alcon.ae/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.alcon.ae/">
+    <meta property="og:title" content="ALCON | Concrete Products & Architectural Solutions">
+    <meta property="og:description" content="Architectural precast, urban landscape elements, GRC, GRP, and paving solutions from Alcon Concrete Products LLC.">
+    <meta property="og:image" content="https://www.alcon.ae/images/hero-bg2.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ALCON | Concrete Products & Architectural Solutions">
+    <meta name="twitter:description" content="Architectural precast, urban landscape elements, GRC, GRP, and paving solutions from Alcon Concrete Products LLC.">
+    <meta name="twitter:image" content="https://www.alcon.ae/images/hero-bg2.jpg">
+    <title>ALCON | Concrete Products & Architectural Solutions</title>
     <link rel="icon" type="image/png" href="images/logo2.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +40,27 @@
         }
 
 
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Alcon Concrete Products LLC",
+        "url": "https://www.alcon.ae/",
+        "logo": "https://www.alcon.ae/images/logo2.png",
+        "email": "sales@alcon.ae",
+        "telephone": "+97145474474",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dubai",
+            "addressCountry": "AE"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/company/alconconcrete/",
+            "https://www.instagram.com/alcon.ae/",
+            "https://www.facebook.com/people/Alcon-Concrete-Products-LLC/61572907018634/"
+        ]
+    }
     </script>
     <style>
 
@@ -114,6 +146,13 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .company-hero-bg .reveal,
+        #about .reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
@@ -257,6 +296,7 @@
     text-transform: uppercase;
   }
     </style>
+    <link rel="stylesheet" href="privacy-modal.css">
 </head>
 
 <body class="antialiased selection:bg-white selection:text-black overflow-x-hidden">
@@ -275,13 +315,13 @@
 
     <div id="torch-light"></div>
 
-    <<header class="fixed top-0 left-0 w-full z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/10 px-6 md:px-12 py-3 transition-all duration-300 pointer-events-none" id="header">
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/10 px-6 md:px-12 py-3 transition-all duration-300 pointer-events-none" id="header">
         <div class="max-w-screen-2xl mx-auto flex justify-between items-center h-16 pointer-events-auto">
             <div class="flex items-center">
-    <a href="#" class="block transition-transform duration-300 hover:scale-105">
-        <img src="images\logo.png" alt="Alcon Logo" class="h-10 md:h-14 w-auto object-contain">
-    </a>
-</div>
+                <a href="Index.html" class="block transition-transform duration-300 hover:scale-105" aria-label="Alcon home">
+                    <img src="images/logo.png" alt="Alcon Logo" class="h-10 md:h-14 w-auto object-contain">
+                </a>
+            </div>
             
             <nav class="hidden md:flex items-center gap-12 text-[11px] font-medium tracking-[0.25em] uppercase">
                 <a href="#about" class="escofet-nav-link text-white hover:text-muted">About Us</a>
@@ -294,7 +334,7 @@
                 <a href="#contact" class="hidden lg:inline-flex text-[11px] font-medium uppercase tracking-[0.2em] bg-white text-black px-5 py-2.5 rounded-none hover:bg-neutral-200 transition-colors">
                     Inquire
                 </a>
-                <button id="menu-toggle" class="group flex flex-col justify-center items-end gap-1.5 w-8 h-8 focus:outline-none relative z-50" aria-label="Toggle Menu">
+                <button id="menu-toggle" class="group flex flex-col justify-center items-end gap-1.5 w-8 h-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 relative z-50" aria-label="Toggle Menu">
                     <span id="bar-top" class="w-6 h-[1.5px] bg-white transition-all duration-300 transform origin-right"></span>
                     <span id="bar-bottom" class="w-4 group-hover:w-6 h-[1.5px] bg-white transition-all duration-300 transform origin-right"></span>
                 </button>
@@ -332,6 +372,10 @@
             <div class="flex gap-8">
                 <a href="mailto:sales@alcon.ae" class="hover:text-white transition-colors">sales@alcon.ae</a>
                 <span>DIC, Dubai</span>
+                <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+                <a href="careers.html" class="hover:text-white transition-colors">Careers</a>
+                <a href="privacy-policy.html" class="privacy-policy-trigger hover:text-white transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
             </div>
         </div>
     </div>
@@ -422,9 +466,9 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 md:gap-y-32 relative z-10">
-                        <a href="urban-landscape.html" class="group block reveal relative">
+                        <a href="urban_landscape_gallery.html" class="group block reveal relative" aria-label="View Urban Landscape gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images\ampi2.jpg" alt="Barbeque Counter" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/ampi2.jpg" alt="Barbeque Counter" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -437,10 +481,10 @@
                             </div>
                         </a>
 
-                        <a href="fiber-glass.html" class="group block reveal md:mt-32 relative">
+                        <a href="fiber_glass_gallery.html" class="group block reveal md:mt-32 relative" aria-label="View Fiber Glass gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-    <img src="images\planter1.jpg" alt="Planter Pot" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
-</div>
+                                <img src="images/planter1.jpg" alt="Planter Pot" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                            </div>
                             <div class="flex justify-between items-start">
                                 <div>
                                     <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">Al Ain Museum</h3>
@@ -452,9 +496,9 @@
                             </div>
                         </a>
 
-                        <a href="architectural-precast.html" class="group block reveal relative">
+                        <a href="architectural_precast_gallery.html" class="group block reveal relative" aria-label="View Architectural Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images\Seat.jpg" alt="Seat" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/Seat.jpg" alt="Seat" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -467,7 +511,7 @@
                             </div>
                         </a>
 
-                        <a href="industrial-precast.html" class="group block reveal even:md:mt-32 relative">
+                        <a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
                                 <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
                             </div>
@@ -482,9 +526,9 @@
                             </div>
                         </a>
 			
-			<a href="industrial-precast.html" class="group block reveal even:md:mt-32 relative">
+			<a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/play.jpg" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/play.jpg" alt="Play Element" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -496,9 +540,9 @@
                                 </div>
                             </div>
                         </a>
-			<a href="industrial-precast.html" class="group block reveal even:md:mt-32 relative">
+			<a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/wood.jpg" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/wood.jpg" alt="Wood finish concrete texture" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -510,9 +554,9 @@
                                 </div>
                             </div>
 			</a>
-                        <a href="industrial-precast.html" class="group block reveal even:md:mt-32 relative">
+                        <a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -524,9 +568,9 @@
                                 </div>
                             </div>
 			</a>
-                        <a href="industrial-precast.html" class="group block reveal even:md:mt-32 relative">
+                        <a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -537,10 +581,10 @@
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
                                 </div>
                             </div>
-			</a></a>
-                        <a href="industrial-precast.html" class="group block reveal even:md:mt-32 relative">
+			</a>
+                        <a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -715,13 +759,10 @@
                             </svg>
                             +971 4 5474474
                         </a>
+                        <a href="careers.html" class="hover:text-white transition-colors relative z-20">Careers</a>
                     </div>
                 </div>
             </footer>
-
-        </div>
-    </div>
-
 
         </div>
     </div>
@@ -757,6 +798,34 @@
             let currentY = 0;
             let targetY = 0;
             const scrollEase = 0.075; 
+
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+            }
+
+            function routeToInitialHash() {
+                if (!window.location.hash) return;
+
+                const targetElement = document.querySelector(window.location.hash);
+                if (!targetElement) return;
+
+                const applyHashPosition = () => {
+                    const headerOffset = document.getElementById('header').offsetHeight + 24;
+                    const hashPosition = Math.max(0, targetElement.offsetTop - headerOffset);
+                    currentY = hashPosition;
+                    targetY = hashPosition;
+                    window.scrollTo({ top: hashPosition, behavior: 'auto' });
+                };
+
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(applyHashPosition);
+                });
+                window.setTimeout(applyHashPosition, 250);
+            }
+
+            routeToInitialHash();
+            window.addEventListener('load', routeToInitialHash, { once: true });
+            window.addEventListener('hashchange', routeToInitialHash);
 
             const resizeObserver = new ResizeObserver(() => {
                 document.body.style.height = `${smoothContent.getBoundingClientRect().height}px`;
@@ -873,5 +942,6 @@
             menuToggle.addEventListener('click', toggleMenu);
         });
     </script>
+    <script src="privacy-modal.js"></script>
 </body>
 </html>

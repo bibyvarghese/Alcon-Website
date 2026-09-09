@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GRC and GRP composite solutions from Alcon, including facades, decorative screens, planters, and custom architectural cladding in Dubai, UAE.">
+    <link rel="canonical" href="https://www.alcon.ae/fiber_glass_gallery.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.alcon.ae/fiber_glass_gallery.html">
+    <meta property="og:title" content="ALCON | GRC & GRP Composites">
+    <meta property="og:description" content="Custom GRC and GRP composite solutions for architectural facades, screens, planters, and cladding.">
     <title>ALCON | GRC & GRP Composites</title>
     <link rel="icon" type="image/png" href="images/logo2.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -149,7 +155,10 @@
         }
 
         @media (hover: none) { #torch-light { display: none !important; } }
+
     </style>
+    <link rel="stylesheet" href="privacy-modal.css">
+    <link rel="stylesheet" href="shared-header.css">
 </head>
 <body class="antialiased selection:bg-white selection:text-black overflow-x-hidden">
 
@@ -168,19 +177,18 @@
     <div class="structural-grid"></div>
     <div id="torch-light"></div>
 
-    <!-- Header -->
     <header class="fixed top-0 left-0 w-full z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/10 px-6 md:px-12 py-3 transition-all duration-300 pointer-events-none" id="header">
         <div class="max-w-screen-2xl mx-auto flex justify-between items-center h-16 pointer-events-auto">
             <div class="flex items-center">
-                <a href="index.html" class="block transition-transform duration-300 hover:scale-105">
+                <a href="Index.html" class="block transition-transform duration-300 hover:scale-105" aria-label="Alcon home">
                     <img src="images/logo.png" alt="Alcon Logo" class="h-10 md:h-14 w-auto object-contain">
                 </a>
             </div>
             
             <nav class="hidden md:flex items-center gap-12 text-[11px] font-medium tracking-[0.25em] uppercase">
-                <a href="index.html#about" class="escofet-nav-link text-white hover:text-muted">About Us</a>
-                <a href="index.html#products" class="escofet-nav-link text-white hover:text-muted">Capabilities</a>
-                <a href="#gallery" class="escofet-nav-link text-white hover:text-muted">Works</a>
+                <a href="Index.html#about" class="escofet-nav-link text-white hover:text-muted">About Us</a>
+                <a href="Index.html#products" class="escofet-nav-link text-white hover:text-muted">Capabilities</a>
+                <a href="Index.html#portfolio" class="escofet-nav-link text-white hover:text-muted">Projects</a>
                 <a href="#contact" class="escofet-nav-link text-white hover:text-muted">Contact</a>
             </nav>
             
@@ -188,7 +196,7 @@
                 <a href="#contact" class="hidden lg:inline-flex text-[11px] font-medium uppercase tracking-[0.2em] bg-white text-black px-5 py-2.5 rounded-none hover:bg-neutral-200 transition-colors">
                     Inquire
                 </a>
-                <button id="menu-toggle" class="group flex flex-col justify-center items-end gap-1.5 w-8 h-8 focus:outline-none relative z-50" aria-label="Toggle Menu">
+                <button id="menu-toggle" class="group flex flex-col justify-center items-end gap-1.5 w-8 h-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 relative z-50" aria-label="Toggle Menu">
                     <span id="bar-top" class="w-6 h-[1.5px] bg-white transition-all duration-300 transform origin-right"></span>
                     <span id="bar-bottom" class="w-4 group-hover:w-6 h-[1.5px] bg-white transition-all duration-300 transform origin-right"></span>
                 </button>
@@ -196,7 +204,6 @@
         </div>
     </header>
 
-    <!-- Fullscreen Escofet Menu -->
     <div id="fullscreen-menu" class="menu-overlay fixed inset-0 bg-[#0d0d0d] z-40 flex flex-col justify-between p-8 md:p-24">
         <div class="absolute inset-0 grid grid-cols-4 pointer-events-none opacity-5">
             <div class="border-r border-white h-full"></div>
@@ -215,8 +222,10 @@
             
             <nav class="md:col-span-8 flex flex-col gap-4 text-left">
                 <p class="text-[10px] uppercase tracking-[0.4em] text-muted mb-2 block md:hidden">Index</p>
-                <a href="index.html" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Home</a>
-                <a href="#gallery" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Works</a>
+                <a href="Index.html" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Home</a>
+                <a href="Index.html#about" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">About</a>
+                <a href="Index.html#products" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Capabilities</a>
+                <a href="Index.html#portfolio" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Projects</a>
                 <a href="#contact" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Contact</a>
             </nav>
         </div>
@@ -351,7 +360,7 @@
                 </div>
                 
                 <div class="max-w-screen-2xl mx-auto mt-32 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted uppercase tracking-widest reveal relative z-10">
-                    <p>&copy; 2024 Alcon Concrete Products LLC.</p>
+                    <p>&copy; 2026 Alcon Concrete Products LLC.</p>
                     <div class="flex flex-wrap items-center gap-6">
                         <!-- Live Google Maps Location Link -->
                         <a href="https://www.google.com/maps/search/?api=1&query=Alcon+Concrete+Products+LLC+Dubai+Industrial+City" 
@@ -373,6 +382,9 @@
                             </svg>
                             +971 4 5474474
                         </a>
+                        <a href="privacy-policy.html" class="privacy-policy-trigger hover:text-white transition-colors relative z-20">Privacy</a>
+                        <a href="careers.html" class="hover:text-white transition-colors relative z-20">Careers</a>
+                        <a href="terms.html" class="hover:text-white transition-colors relative z-20">Terms</a>
                     </div>
                 </div>
             </footer>
@@ -525,5 +537,7 @@
             menuToggle.addEventListener('click', toggleMenu);
         });
     </script>
+    <script src="privacy-modal.js"></script>
+    <script src="shared-header.js"></script>
 </body>
 </html>

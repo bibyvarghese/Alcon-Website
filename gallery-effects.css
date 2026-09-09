@@ -1,0 +1,46 @@
+.gallery-grain,
+.gallery-grid {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.gallery-grain {
+    z-index: 2;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyMDAgMjAwJz48ZmlsdGVyIGlkPSdub2lzZSc+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuODUnIG51bU9jdGF2ZXM9JzMnIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9InVybCgjbm9pc2UpIi8+PC9zdmc+");
+}
+
+.gallery-grid {
+    z-index: 1;
+    background-size: 10vw 10vw;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+.gallery-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 60;
+    height: 2px;
+    width: 0;
+    background: #fff;
+    pointer-events: none;
+}
+
+.gallery-hero {
+    background: radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.08), transparent 34%), #0a0a0a;
+}
+
+.reveal {
+    transition-duration: 1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .img-zoom {
+        transition: none !important;
+    }
+}

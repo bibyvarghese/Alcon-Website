@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Architectural Designer",
+    "department": "Design",
+    "location": "Dubai, UAE",
+    "description": "Support concept development, technical detailing, and material studies for custom concrete projects.",
+    "emailSubject": "Application - Architectural Designer"
+  },
+  {
+    "title": "Project Engineer",
+    "department": "Projects",
+    "location": "Dubai, UAE",
+    "description": "Coordinate drawings, production requirements, site details, and delivery across active projects.",
+    "emailSubject": "Application - Project Engineer"
+  },
+  {
+    "title": "Production Supervisor",
+    "department": "Manufacturing",
+    "location": "Dubai, UAE",
+    "description": "Help lead factory operations, quality checks, scheduling, and the delivery of finished elements.",
+    "emailSubject": "Application - Production Supervisor"
+  },
+  {
+    "title": "Sales & Business Development",
+    "department": "Commercial",
+    "location": "Dubai, UAE",
+    "description": "Build relationships with architects, consultants, contractors, and project partners across the UAE.",
+    "emailSubject": "Application - Sales and Business Development"
+  },
+  {
+    "title": "IT Management and Network Administration",
+    "department": "Administration",
+    "location": "Dubai, UAE",
+    "description": "Build relationships with team and maintain IT systems, networks, and security across the company.",
+    "emailSubject": "Application - IT Management and Network Administration"
+  }
+]

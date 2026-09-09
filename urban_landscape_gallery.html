@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Urban landscape products and street furniture by Alcon, including benches, planters, bollards, and public realm concrete elements in Dubai, UAE.">
+    <link rel="canonical" href="https://www.alcon.ae/urban_landscape_gallery.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.alcon.ae/urban_landscape_gallery.html">
+    <meta property="og:title" content="Urban Landscape | ALCON">
+    <meta property="og:description" content="Concrete street furniture, planters, bollards, benches, and public realm elements for urban spaces.">
     <title>Urban Landscape | ALCON</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -49,23 +55,27 @@
         .img-zoom { transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
         .group:hover .img-zoom { transform: scale(1.08); }
         .text-outline { color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); }
+
     </style>
+    <link rel="stylesheet" href="privacy-modal.css">
+    <link rel="stylesheet" href="gallery-effects.css">
+    <link rel="stylesheet" href="shared-header.css">
 </head>
 <body class="antialiased selection:bg-white selection:text-black overflow-x-hidden">
 
     <header class="fixed top-0 w-full z-50 mix-blend-difference px-6 py-8 transition-all duration-300" id="header">
         <div class="max-w-screen-2xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="font-display text-2xl font-bold tracking-tighter uppercase text-white flex items-center gap-4 group">
+            <a href="Index.html" class="font-display text-2xl font-bold tracking-tighter uppercase text-white flex items-center gap-4 group">
                 <svg class="w-6 h-6 transform group-hover:-translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                 Alcon.
             </a>
-            <a href="index.html#contact" class="hidden md:inline-flex text-sm font-medium uppercase tracking-wider border-b border-white pb-1 hover:text-muted hover:border-muted transition-colors text-white">
+            <a href="Index.html#contact" class="hidden md:inline-flex text-sm font-medium uppercase tracking-wider border-b border-white pb-1 hover:text-muted hover:border-muted transition-colors text-white">
                 Let's Talk
             </a>
         </div>
     </header>
 
-    <section class="relative min-h-[60vh] flex flex-col justify-end px-6 pb-20 pt-40 border-b border-white/10">
+    <section class="gallery-hero relative min-h-[60vh] flex flex-col justify-end px-6 pb-20 pt-40 border-b border-white/10">
         <div class="max-w-screen-2xl mx-auto w-full z-10">
             <h1 class="font-display font-medium uppercase tracking-tighter text-[10vw] md:text-[8vw] leading-[0.85] reveal">
                 Urban <br>
@@ -140,7 +150,13 @@
     <footer class="py-12 px-6 border-t border-white/10">
         <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted uppercase tracking-widest">
             <p>&copy; 2026 Alcon Concrete Products LLC.</p>
-            <a href="index.html" class="hover:text-white transition-colors border-b border-white/20 pb-1">Return to Main Site</a>
+            <div class="flex flex-wrap items-center justify-center gap-6">
+                <a href="contact.html" class="hover:text-white transition-colors border-b border-white/20 pb-1">Contact</a>
+                <a href="careers.html" class="hover:text-white transition-colors border-b border-white/20 pb-1">Careers</a>
+                <a href="privacy-policy.html" class="privacy-policy-trigger hover:text-white transition-colors border-b border-white/20 pb-1">Privacy</a>
+                <a href="terms.html" class="hover:text-white transition-colors border-b border-white/20 pb-1">Terms</a>
+                <a href="Index.html" class="hover:text-white transition-colors border-b border-white/20 pb-1">Return to Main Site</a>
+            </div>
         </div>
     </footer>
 
@@ -158,5 +174,8 @@
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         });
     </script>
+    <script src="gallery-effects.js"></script>
+    <script src="shared-header.js"></script>
+    <script src="privacy-modal.js"></script>
 </body>
 </html>

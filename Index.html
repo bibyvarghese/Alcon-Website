@@ -9,13 +9,14 @@
     <meta property="og:url" content="https://www.alcon.ae/">
     <meta property="og:title" content="ALCON | Concrete Products & Architectural Solutions">
     <meta property="og:description" content="Architectural precast, urban landscape elements, GRC, GRP, and paving solutions from Alcon Concrete Products LLC.">
-    <meta property="og:image" content="https://www.alcon.ae/images/hero-bg2.jpg">
+    <meta property="og:image" content="https://www.alcon.ae/images/hero-bg2.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ALCON | Concrete Products & Architectural Solutions">
     <meta name="twitter:description" content="Architectural precast, urban landscape elements, GRC, GRP, and paving solutions from Alcon Concrete Products LLC.">
-    <meta name="twitter:image" content="https://www.alcon.ae/images/hero-bg2.jpg">
+    <meta name="twitter:image" content="https://www.alcon.ae/images/hero-bg2.webp">
     <title>ALCON | Concrete Products & Architectural Solutions</title>
-    <link rel="icon" type="image/png" href="images/logo2.png">
+    <link rel="icon" type="image/webp" href="images/logo2.webp">
+    <link rel="preload" as="image" href="images/hero-bg2.webp" fetchpriority="high">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,7 +48,7 @@
         "@type": "Organization",
         "name": "Alcon Concrete Products LLC",
         "url": "https://www.alcon.ae/",
-        "logo": "https://www.alcon.ae/images/logo2.png",
+        "logo": "https://www.alcon.ae/images/logo2.webp",
         "email": "sales@alcon.ae",
         "telephone": "+97145474474",
         "address": {
@@ -203,7 +204,22 @@
             filter: url(#torch-glitch);
         }
 
-        @media (hover: none) { #torch-light { display: none !important; } }
+        #torch-light.is-hovering {
+            width: 104px;
+            height: 104px;
+        }
+
+        @media (hover: none) {
+            #torch-light {
+                width: 64px;
+                height: 64px;
+            }
+
+            #torch-light.is-hovering {
+                width: 76px;
+                height: 76px;
+            }
+        }
 
         /* --- ADDED: Fading Company Photo Background --- */
         .company-hero-bg {
@@ -214,7 +230,7 @@
                     rgba(10, 10, 10, 0.7) 60%,  /* Starts fading heavier midway down */
                     rgba(10, 10, 10, 1) 95%     /* Blends perfectly into the #0a0a0a background at the bottom */
                 ),
-                url('images/hero-bg2.jpg'); /* REPLACE WITH YOUR IMAGE PATH */
+            url('images/hero-bg2.webp'); /* REPLACE WITH YOUR IMAGE PATH */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -233,7 +249,7 @@
 		    rgba(10, 10, 10, 1) 95%,   /* Keeps it dim for readable text */
                     rgba(10, 10, 10, 1) 100%     /* Fades completely out at the bottom */
                 ),
-                url('images/hero2-bg.jpg'); /* Keep your actual image file name here */
+            url('images/hero2-bg.webp'); /* Keep your actual image file name here */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -319,7 +335,7 @@
         <div class="max-w-screen-2xl mx-auto flex justify-between items-center h-16 pointer-events-auto">
             <div class="flex items-center">
                 <a href="Index.html" class="block transition-transform duration-300 hover:scale-105" aria-label="Alcon home">
-                    <img src="images/logo.png" alt="Alcon Logo" class="h-10 md:h-14 w-auto object-contain">
+                    <img src="images/logo.webp" alt="Alcon Logo" class="h-10 md:h-14 w-auto object-contain">
                 </a>
             </div>
             
@@ -468,7 +484,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 md:gap-y-32 relative z-10">
                         <a href="urban_landscape_gallery.html" class="group block reveal relative" aria-label="View Urban Landscape gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/ampi2.jpg" alt="Barbeque Counter" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/ampi2.webp" alt="Barbeque Counter" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -483,7 +499,7 @@
 
                         <a href="fiber_glass_gallery.html" class="group block reveal md:mt-32 relative" aria-label="View Fiber Glass gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/planter1.jpg" alt="Planter Pot" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/planter1.webp" alt="Planter Pot" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -498,7 +514,7 @@
 
                         <a href="architectural_precast_gallery.html" class="group block reveal relative" aria-label="View Architectural Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/Seat.jpg" alt="Seat" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/Seat.webp" alt="Seat" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -513,7 +529,7 @@
 
                         <a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/raq.webp" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -528,7 +544,7 @@
 			
 			<a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/play.jpg" alt="Play Element" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/play.webp" alt="Play Element" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -542,7 +558,7 @@
                         </a>
 			<a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/wood.jpg" alt="Wood finish concrete texture" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/wood.webp" alt="Wood finish concrete texture" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -556,7 +572,7 @@
 			</a>
                         <a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
+                                <img src="images/raq.webp" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -570,7 +586,7 @@
 			</a>
                         <a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
+                                <img src="images/raq.webp" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -584,7 +600,7 @@
 			</a>
                         <a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/raq.png" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
+                                <img src="images/raq.webp" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -779,15 +795,30 @@
             let currentGlitchScale = 0;
             const lensEase = 0.12;            
 
-            document.addEventListener('mousemove', (e) => {
-                if(torch.style.opacity === '0' || torch.style.opacity === '') {
-                    torch.style.opacity = '1';
-                }
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
+            const moveTorch = (event) => {
+                if (!torch) return;
+                torch.style.opacity = '1';
+                mouseX = event.clientX;
+                // Keep the lens visible above a finger while preserving the exact cursor position for a mouse.
+                mouseY = event.clientY + (event.pointerType === 'touch' ? -48 : 0);
+            };
 
-            document.addEventListener('mouseleave', () => { torch.style.opacity = '0'; });
+            document.addEventListener('pointermove', moveTorch, { passive: true });
+            document.addEventListener('pointerdown', moveTorch, { passive: true });
+            document.addEventListener('pointerover', (event) => {
+                torch.classList.toggle('is-hovering', Boolean(event.target.closest('a, button, input, select, textarea')));
+            });
+            document.addEventListener('pointerout', (event) => {
+                if (!event.relatedTarget) torch.classList.remove('is-hovering');
+            });
+            document.addEventListener('pointerleave', (event) => {
+                if (event.pointerType !== 'touch') torch.style.opacity = '0';
+            });
+            document.addEventListener('pointerup', (event) => {
+                if (event.pointerType === 'touch') torch.style.opacity = '0';
+            }, { passive: true });
+            document.addEventListener('pointercancel', () => { torch.style.opacity = '0'; }, { passive: true });
+            window.addEventListener('blur', () => { torch.style.opacity = '0'; });
 
             // --- ME DIGITAL INSTANTIATION LOGIC VARIABLES ---
             const smoothContent = document.getElementById('smooth-content');
@@ -803,34 +834,38 @@
                 history.scrollRestoration = 'manual';
             }
 
-            function routeToInitialHash() {
-                if (!window.location.hash) return;
+            let pendingHashNavigation = Boolean(window.location.hash);
 
+            const routeToHash = () => {
                 const targetElement = document.querySelector(window.location.hash);
                 if (!targetElement) return;
 
-                const applyHashPosition = () => {
-                    const headerOffset = document.getElementById('header').offsetHeight + 24;
-                    const hashPosition = Math.max(0, targetElement.offsetTop - headerOffset);
-                    currentY = hashPosition;
-                    targetY = hashPosition;
-                    window.scrollTo({ top: hashPosition, behavior: 'auto' });
-                };
-
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(applyHashPosition);
-                });
-                window.setTimeout(applyHashPosition, 250);
-            }
-
-            routeToInitialHash();
-            window.addEventListener('load', routeToInitialHash, { once: true });
-            window.addEventListener('hashchange', routeToInitialHash);
+                const headerOffset = document.getElementById('header').offsetHeight + 24;
+                const hashPosition = Math.max(0, targetElement.offsetTop - headerOffset);
+                currentY = hashPosition;
+                targetY = hashPosition;
+                smoothContent.style.transform = `translate3d(0, -${hashPosition}px, 0)`;
+                window.scrollTo({ top: hashPosition, behavior: 'auto' });
+            };
 
             const resizeObserver = new ResizeObserver(() => {
                 document.body.style.height = `${smoothContent.getBoundingClientRect().height}px`;
+                if (pendingHashNavigation) {
+                    pendingHashNavigation = false;
+                    requestAnimationFrame(routeToHash);
+                }
             });
             resizeObserver.observe(smoothContent);
+
+            window.addEventListener('hashchange', () => {
+                pendingHashNavigation = true;
+                requestAnimationFrame(() => {
+                    if (pendingHashNavigation) {
+                        pendingHashNavigation = false;
+                        routeToHash();
+                    }
+                });
+            });
 
             // --- CENTRALIZED ENGINE TICK FRAME ---
             function processUnifiedRenderLoop() {
@@ -898,7 +933,8 @@
                     
                     const targetEl = document.querySelector(targetId);
                     if (targetEl) {
-                        const absoluteOffset = targetEl.getBoundingClientRect().top + currentY;
+                        const headerOffset = document.getElementById('header').offsetHeight + 24;
+                        const absoluteOffset = Math.max(0, targetEl.offsetTop - headerOffset);
                         window.scrollTo({ top: absoluteOffset, behavior: 'auto' });
                         if (document.getElementById('fullscreen-menu').classList.contains('open')) {
                             toggleMenu();

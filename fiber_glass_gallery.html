@@ -10,8 +10,9 @@
     <meta property="og:title" content="ALCON | GRC & GRP Composites">
     <meta property="og:description" content="Custom GRC and GRP composite solutions for architectural facades, screens, planters, and cladding.">
     <title>ALCON | GRC & GRP Composites</title>
-    <link rel="icon" type="image/png" href="images/logo2.png">
+    <link rel="icon" type="image/webp" href="images/logo2.webp">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="gallery-effects.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -154,7 +155,9 @@
             filter: url(#torch-glitch);
         }
 
-        @media (hover: none) { #torch-light { display: none !important; } }
+        @media (hover: none) {
+            #torch-light { width: 64px; height: 64px; }
+        }
 
     </style>
     <link rel="stylesheet" href="privacy-modal.css">
@@ -181,14 +184,14 @@
         <div class="max-w-screen-2xl mx-auto flex justify-between items-center h-16 pointer-events-auto">
             <div class="flex items-center">
                 <a href="Index.html" class="block transition-transform duration-300 hover:scale-105" aria-label="Alcon home">
-                    <img src="images/logo.png" alt="Alcon Logo" class="h-10 md:h-14 w-auto object-contain">
+                    <img src="images/logo.webp" alt="Alcon Logo" class="h-10 md:h-14 w-auto object-contain">
                 </a>
             </div>
             
             <nav class="hidden md:flex items-center gap-12 text-[11px] font-medium tracking-[0.25em] uppercase">
-                <a href="Index.html#about" class="escofet-nav-link text-white hover:text-muted">About Us</a>
-                <a href="Index.html#products" class="escofet-nav-link text-white hover:text-muted">Capabilities</a>
-                <a href="Index.html#portfolio" class="escofet-nav-link text-white hover:text-muted">Projects</a>
+                <a href="/#about" class="escofet-nav-link text-white hover:text-muted">About Us</a>
+                <a href="/#products" class="escofet-nav-link text-white hover:text-muted">Capabilities</a>
+                <a href="/#portfolio" class="escofet-nav-link text-white hover:text-muted">Projects</a>
                 <a href="#contact" class="escofet-nav-link text-white hover:text-muted">Contact</a>
             </nav>
             
@@ -223,9 +226,9 @@
             <nav class="md:col-span-8 flex flex-col gap-4 text-left">
                 <p class="text-[10px] uppercase tracking-[0.4em] text-muted mb-2 block md:hidden">Index</p>
                 <a href="Index.html" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Home</a>
-                <a href="Index.html#about" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">About</a>
-                <a href="Index.html#products" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Capabilities</a>
-                <a href="Index.html#portfolio" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Projects</a>
+                <a href="/#about" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">About</a>
+                <a href="/#products" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Capabilities</a>
+                <a href="/#portfolio" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Projects</a>
                 <a href="#contact" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Contact</a>
             </nav>
         </div>
@@ -246,8 +249,8 @@
             <!-- Hero Video Section -->
             <section class="skew-container relative min-h-[75vh] flex flex-col justify-end px-6 pb-20 pt-40 border-b border-white/10 overflow-hidden">
                 <div class="absolute inset-0 z-0">
-                    <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-40">
-                        <source src="images/grc.mp4" type="video/mp4">
+                    <video autoplay muted loop playsinline preload="metadata" class="w-full h-full object-cover opacity-40">
+                        <source src="images/grc-optimized.mp4" type="video/mp4">
                     </video>
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent"></div>
                 </div>
@@ -279,7 +282,7 @@
                         <!-- Card 1 -->
                         <div class="group block reveal">
                             <div class="parallax-wrap aspect-[4/3] mb-8 bg-[#111] rounded-lg">
-                                <img src="images/grc5.jpeg" alt="Decorative GRC Screens" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <img src="images/grc5.webp" alt="Decorative GRC Screens" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
@@ -408,15 +411,21 @@
             let currentGlitchScale = 0;
             const lensEase = 0.12;            
 
-            document.addEventListener('mousemove', (e) => {
-                if(torch.style.opacity === '0' || torch.style.opacity === '') {
-                    torch.style.opacity = '1';
-                }
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
+            const moveTorch = (event) => {
+                torch.style.opacity = '1';
+                mouseX = event.clientX;
+                mouseY = event.clientY + (event.pointerType === 'touch' ? -48 : 0);
+            };
 
-            document.addEventListener('mouseleave', () => { torch.style.opacity = '0'; });
+            document.addEventListener('pointermove', moveTorch, { passive: true });
+            document.addEventListener('pointerdown', moveTorch, { passive: true });
+            document.addEventListener('pointerleave', (event) => {
+                if (event.pointerType !== 'touch') torch.style.opacity = '0';
+            });
+            document.addEventListener('pointerup', (event) => {
+                if (event.pointerType === 'touch') torch.style.opacity = '0';
+            }, { passive: true });
+            document.addEventListener('pointercancel', () => { torch.style.opacity = '0'; }, { passive: true });
 
             // Smooth Scroll Momentum Engine
             const smoothContent = document.getElementById('smooth-content');
@@ -537,6 +546,7 @@
             menuToggle.addEventListener('click', toggleMenu);
         });
     </script>
+    <script src="gallery-effects.js"></script>
     <script src="privacy-modal.js"></script>
     <script src="shared-header.js"></script>
 </body>

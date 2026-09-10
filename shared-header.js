@@ -8,22 +8,22 @@
         document.body.insertAdjacentHTML('afterbegin', `
             <header id="header" class="shared-site-header">
                 <div class="shared-site-header__inner">
-                    <a class="shared-site-header__logo" href="Index.html" aria-label="Alcon home"><img src="images/logo.png" alt="Alcon Logo"></a>
+                    <a class="shared-site-header__logo" href="Index.html" aria-label="Alcon home"><img src="images/logo.webp" alt="Alcon Logo"></a>
                     <nav class="shared-site-header__nav" aria-label="Primary navigation">
-                        <a href="Index.html#about">About Us</a>
-                        <a href="Index.html#products">Capabilities</a>
-                        <a href="Index.html#portfolio">Projects</a>
-                        <a href="Index.html#contact">Contact</a>
+                        <a href="/#about">About Us</a>
+                        <a href="/#products">Capabilities</a>
+                        <a href="/#portfolio">Projects</a>
+                        <a href="/#contact">Contact</a>
                     </nav>
                     <div class="shared-site-header__actions">
-                        <a class="shared-site-header__inquire" href="Index.html#contact">Inquire</a>
+                        <a class="shared-site-header__inquire" href="/#contact">Inquire</a>
                         <button class="shared-site-header__menu" type="button" aria-label="Toggle Menu" aria-expanded="false"><span class="shared-site-header__bar shared-site-header__bar--top"></span><span class="shared-site-header__bar shared-site-header__bar--bottom"></span></button>
                     </div>
                 </div>
             </header>
             <div class="shared-site-menu" aria-hidden="true">
                 <nav class="shared-site-menu__links" aria-label="Menu navigation">
-                    <a href="Index.html">Home</a><a href="Index.html#about">About</a><a href="Index.html#products">Capabilities</a><a href="Index.html#portfolio">Projects</a><a href="Index.html#contact">Contact</a>
+                    <a href="/">Home</a><a href="/#about">About</a><a href="/#products">Capabilities</a><a href="/#portfolio">Projects</a><a href="/#contact">Contact</a>
                 </nav>
                 <div class="shared-site-menu__footer">Alcon Concrete Products LLC / Dubai, UAE</div>
             </div>`);

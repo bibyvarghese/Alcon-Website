@@ -2,7 +2,7 @@
     const start = () => {
         const lazyLoadImages = () => {
             document.querySelectorAll('img:not([loading]):not([data-lazy-disabled])').forEach((img) => {
-                const isLogo = img.src && /logo(2)?\.png/i.test(img.src);
+                const isLogo = img.src && /logo(2)?\.(png|webp)/i.test(img.src);
                 if (isLogo) {
                     img.loading = 'eager';
                     img.decoding = 'async';
@@ -23,6 +23,63 @@
         }
         if (!document.querySelector('.gallery-progress')) {
             document.body.insertAdjacentHTML('afterbegin', '<div class="gallery-progress"></div>');
+        }
+
+        if (!document.querySelector('.site-pointer-lens') && !document.querySelector('#torch-light')) {
+            document.body.insertAdjacentHTML('beforeend', `
+                <svg class="site-pointer-filter" aria-hidden="true" width="0" height="0">
+                    <defs><filter id="gallery-torch-glitch"><feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="1" result="noise" /><feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" class="site-torch-displacement" /></filter></defs>
+                </svg>
+                <div class="site-pointer-lens" aria-hidden="true"></div>`);
+        }
+
+        const pointerLens = document.querySelector('.site-pointer-lens');
+        if (pointerLens) {
+            const displacement = document.querySelector('.site-torch-displacement');
+            let targetX = 0;
+            let targetY = 0;
+            let lensX = 0;
+            let lensY = 0;
+            let lastX = 0;
+            let lastY = 0;
+            let glitchScale = 0;
+            let pointerFrame;
+
+            const renderPointerLens = () => {
+                lensX += (targetX - lensX) * 0.12;
+                lensY += (targetY - lensY) * 0.12;
+                const speed = Math.hypot(targetX - lastX, targetY - lastY);
+                lastX = targetX;
+                lastY = targetY;
+                glitchScale += (Math.min(speed * 1.5, 45) - glitchScale) * 0.15;
+                pointerLens.style.left = `${lensX}px`;
+                pointerLens.style.top = `${lensY}px`;
+                if (displacement) displacement.setAttribute('scale', glitchScale);
+                pointerFrame = requestAnimationFrame(renderPointerLens);
+            };
+
+            const movePointerLens = (event) => {
+                targetX = event.clientX;
+                // A small offset prevents the lens being covered by the user's finger.
+                targetY = event.clientY + (event.pointerType === 'touch' ? -48 : 0);
+                if (!pointerFrame) pointerFrame = requestAnimationFrame(renderPointerLens);
+                pointerLens.classList.add('is-visible');
+            };
+            const hidePointerLens = () => pointerLens.classList.remove('is-visible', 'is-hovering');
+
+            document.addEventListener('pointermove', movePointerLens, { passive: true });
+            document.addEventListener('pointerdown', movePointerLens, { passive: true });
+            document.addEventListener('pointerover', (event) => {
+                pointerLens.classList.toggle('is-hovering', Boolean(event.target.closest('a, button, input, select, textarea')));
+            });
+            document.addEventListener('pointerout', (event) => {
+                if (!event.relatedTarget) hidePointerLens();
+            });
+            document.addEventListener('pointerup', (event) => {
+                if (event.pointerType === 'touch') hidePointerLens();
+            }, { passive: true });
+            document.addEventListener('pointercancel', hidePointerLens, { passive: true });
+            window.addEventListener('blur', hidePointerLens);
         }
 
         const progress = document.querySelector('.gallery-progress');

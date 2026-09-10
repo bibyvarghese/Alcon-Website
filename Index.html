@@ -7,21 +7,20 @@
     <link rel="canonical" href="https://www.alcon.ae/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.alcon.ae/">
-    <meta property="og:title" content="ALCON | Concrete Products & Architectural Solutions">
+    <meta property="og:title" content="ALCON">
     <meta property="og:description" content="Architectural precast, urban landscape elements, GRC, GRP, and paving solutions from Alcon Concrete Products LLC.">
     <meta property="og:image" content="https://www.alcon.ae/images/hero-bg2.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ALCON | Concrete Products & Architectural Solutions">
+    <meta name="twitter:title" content="ALCON ">
     <meta name="twitter:description" content="Architectural precast, urban landscape elements, GRC, GRP, and paving solutions from Alcon Concrete Products LLC.">
     <meta name="twitter:image" content="https://www.alcon.ae/images/hero-bg2.webp">
-    <title>ALCON | Concrete Products & Architectural Solutions</title>
+    <title>ALCON </title>
     <link rel="icon" type="image/webp" href="images/logo2.webp">
     <link rel="preload" as="image" href="images/hero-bg2.webp" fetchpriority="high">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    
 
     <script>
         tailwind.config = {
@@ -39,8 +38,6 @@
                 }
             }
         }
-
-
     </script>
     <script type="application/ld+json">
     {
@@ -64,29 +61,24 @@
     }
     </script>
     <style>
-
-
-        /* Custom scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0a0a0a; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #555; }
 
-        /* Concrete Film Grain Overlay - Bushed to top layer */
         .concrete-grain {
             position: fixed;
             inset: 0;
-            z-index: 20; /* Raised from 1 to 20 to sit on top of everything */
+            z-index: 20;
             pointer-events: none;
             opacity: 0.04;
             background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyMDAgMjAwJz48ZmlsdGVyIGlkPSdub2lzZSc+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuODUnIG51bU9jdGF2ZXM9JzMnIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9InVybCgjbm9pc2UpIi8+PC9zdmc+");
         }
 
-        /* Structural Sub-Grid - Brushed to top layer */
         .structural-grid {
             position: fixed;
             inset: 0;
-            z-index: 21; /* Raised from 2 to 21 so it sits perfectly over the grain and images */
+            z-index: 21;
             pointer-events: none;
             background-size: 10vw 10vw;
             background-image: 
@@ -94,7 +86,6 @@
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         }
 
-        /* --- ME DIGITAL INTERTIA MOMENTUM LAYOUT ENGINE --- */
         #smooth-wrapper {
             position: fixed;
             top: 0;
@@ -124,7 +115,6 @@
             transition: font-variation-settings 0.1s linear;
         }
 
-        /* Architectural Parallax Windows */
         .parallax-wrap {
             overflow: hidden;
             position: relative;
@@ -134,9 +124,6 @@
             transform: scale(1.25);
         }
 
-
-
-        /* Agency-style smooth reveal animations */
         .reveal {
             opacity: 0;
             transform: translateY(60px);
@@ -167,13 +154,6 @@
             -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
         }
 
-        #scroll-zoom-text {
-            display: inline-block;
-            transform-origin: left center;
-            will-change: transform, letter-spacing;
-        }
-
-        /* Nav Links */
         .escofet-nav-link { position: relative; transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .escofet-nav-link::after {
             content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 1px;
@@ -185,7 +165,6 @@
         .menu-overlay { clip-path: inset(0 0 100% 0); transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
         .menu-overlay.open { clip-path: inset(0 0 0 0); }
 
-        /* Torch Lens with SVG Filter Binding */
         #torch-light {
             position: fixed;
             top: 0;
@@ -214,103 +193,42 @@
                 width: 64px;
                 height: 64px;
             }
-
             #torch-light.is-hovering {
                 width: 76px;
                 height: 76px;
             }
         }
 
-        /* --- ADDED: Fading Company Photo Background --- */
         .company-hero-bg {
             background: 
                 linear-gradient(
                     to bottom, 
-                    rgba(10, 10, 10, 0.3) 0%,   /* Slight dark tint at top to keep white text readable */
-                    rgba(10, 10, 10, 0.7) 60%,  /* Starts fading heavier midway down */
-                    rgba(10, 10, 10, 1) 95%     /* Blends perfectly into the #0a0a0a background at the bottom */
+                    rgba(10, 10, 10, 0.3) 0%,
+                    rgba(10, 10, 10, 0.7) 60%,
+                    rgba(10, 10, 10, 1) 95%
                 ),
-            url('images/hero-bg2.webp'); /* REPLACE WITH YOUR IMAGE PATH */
+            url('images/hero-bg2.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-
-	    box-shadow: 0 20px 20px 10px #0a0a0a;
+            box-shadow: 0 20px 20px 10px #0a0a0a;
         }
 
-	/* --- Fading Background for Hero 2 (Fixed Color Match) --- */
         .hero2-bg {
             background: 
                 linear-gradient(
                     to bottom, 
-                    rgba(10, 10, 10, 1) 0%,      /* Solid deep black at the edge */
-                    rgba(10, 10, 10, 0.4) 20%,   /* Slowly melts to show the image */
+                    rgba(10, 10, 10, 1) 0%,
+                    rgba(10, 10, 10, 0.4) 20%,
                     rgba(10, 10, 10, 0.8) 80%,
-		    rgba(10, 10, 10, 1) 95%,   /* Keeps it dim for readable text */
-                    rgba(10, 10, 10, 1) 100%     /* Fades completely out at the bottom */
+                    rgba(10, 10, 10, 1) 95%,
+                    rgba(10, 10, 10, 1) 100%
                 ),
-            url('images/hero2-bg.webp'); /* Keep your actual image file name here */
+            url('images/hero2-bg.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
-
-:root {
-    --bench-color: #e0e0e0; /* White/Concrete color */
-    --text-color: #333;
-  }
-
-  .scene {
-    width: 300px;
-    height: 300px;
-    perspective: 800px;
-    margin: 100px auto;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* The 3D Bench Structure */
-  .bench {
-    width: 200px;
-    height: 100px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.1s linear;
-  }
-
-  .face {
-    position: absolute;
-    background: var(--bench-color);
-    border: 1px solid #ccc;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
-  }
-
-  /* Bench Dimensions */
-  .top { width: 200px; height: 100px; transform: rotateX(90deg) translateZ(50px); }
-  .front { width: 200px; height: 100px; transform: translateZ(50px); }
-  .back { width: 200px; height: 100px; transform: rotateY(180deg) translateZ(50px); }
-
-  /* Rounded Text Ring */
-  .text-ring {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    pointer-events: none;
-    transition: transform 0.1s linear;
-  }
-
-  .text-char {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform-origin: 0 150px; /* Radius */
-    font-weight: bold;
-    color: var(--text-color);
-    text-transform: uppercase;
-  }
     </style>
     <link rel="stylesheet" href="privacy-modal.css">
 </head>
@@ -328,7 +246,6 @@
 
     <div class="concrete-grain"></div>
     <div class="structural-grid"></div>
-
     <div id="torch-light"></div>
 
     <header class="fixed top-0 left-0 w-full z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/10 px-6 md:px-12 py-3 transition-all duration-300 pointer-events-none" id="header">
@@ -341,8 +258,8 @@
             
             <nav class="hidden md:flex items-center gap-12 text-[11px] font-medium tracking-[0.25em] uppercase">
                 <a href="#about" class="escofet-nav-link text-white hover:text-muted">About Us</a>
-                <a href="#products" class="escofet-nav-link text-white hover:text-muted">Capabilities</a>
-                <a href="#portfolio" class="escofet-nav-link text-white hover:text-muted">Projects</a>
+                <a href="#capabilities" class="escofet-nav-link text-white hover:text-muted">Capabilities</a>
+                <a href="#projects" class="escofet-nav-link text-white hover:text-muted">Projects</a>
                 <a href="#contact" class="escofet-nav-link text-white hover:text-muted">Contact</a>
             </nav>
             
@@ -377,8 +294,8 @@
             <nav class="md:col-span-8 flex flex-col gap-4 text-left">
                 <p class="text-[10px] uppercase tracking-[0.4em] text-muted mb-2 block md:hidden">Index</p>
                 <a href="#about" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">About</a>
-                <a href="#products" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Capabilities</a>
-                <a href="#portfolio" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Projects</a>
+                <a href="#capabilities" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Capabilities</a>
+                <a href="#projects" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Projects</a>
                 <a href="#contact" class="menu-item font-display text-4xl sm:text-6xl md:text-7xl font-light uppercase tracking-tighter hover:text-muted transition-colors py-2 border-b border-white/5">Contact</a>
             </nav>
         </div>
@@ -398,10 +315,8 @@
 
     <div id="smooth-wrapper">
         <div id="smooth-content">
-            <div class="concrete-grain"></div>
-            <div class="structural-grid"></div>
 
-           <section class="skew-container company-hero-bg relative min-h-screen flex flex-col justify-center px-6 pt-28">
+            <section class="skew-container company-hero-bg relative min-h-screen flex flex-col justify-center px-6 pt-28">
                 <div class="max-w-screen-2xl mx-auto w-full z-10 relative">
                     <h1 class="font-display font-medium uppercase tracking-tighter text-[13vw] md:text-[10vw] leading-[0.85] reveal variable-weight">
                         The Art Of <br>
@@ -421,7 +336,7 @@
                 <div class="absolute top-1/2 right-0 -translate-y-1/2 w-1/2 h-[80vh] bg-gradient-to-l from-white/5 to-transparent blur-3xl -z-10 rounded-full"></div>
             </section>
 
-           <section id="about" class="skew-container hero2-bg relative min-h-screen flex flex-col justify-center px-6 pt-28">
+            <section id="about" class="skew-container hero2-bg relative min-h-screen flex flex-col justify-center px-6 pt-28">
                 <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16">
                     <div class="md:col-span-4 reveal relative z-10">
                         <h2 class="text-sm font-medium uppercase tracking-widest text-muted mb-4">About Us</h2>
@@ -475,7 +390,7 @@
                 </div>
             </section>
 
-            <section id="portfolio" class="skew-container py-40 px-6 relative z-10">
+            <section id="projects" class="skew-container py-40 px-6 relative z-10">
                 <div class="max-w-screen-2xl mx-auto">
                     <div class="flex justify-between items-end mb-24 reveal">
                         <h2 class="font-display text-6xl md:text-8xl font-medium tracking-tighter uppercase variable-weight">Our Projects</h2>
@@ -497,14 +412,14 @@
                             </div>
                         </a>
 
-                        <a href="fiber_glass_gallery.html" class="group block reveal md:mt-32 relative" aria-label="View Fiber Glass gallery">
+                        <a href="architectural_precast_gallery.html" class="group block reveal md:mt-32 relative" aria-label="View Architectural Precast gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
                                 <img src="images/planter1.webp" alt="Planter Pot" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
                                     <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">Al Ain Museum</h3>
-                                    <p class="text-muted text-sm uppercase tracking-widest">Architectural GRC Planter</p>
+                                    <p class="text-muted text-sm uppercase tracking-widest">Architectural Precast Planter</p>
                                 </div>
                                 <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
@@ -518,8 +433,8 @@
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">Watch Roastery Restaurant,Dubai</h3>
-                                    <p class="text-muted text-sm uppercase tracking-widest">Alcocrete™  Furniture</p>
+                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">Watch Roastery Restaurant, Dubai</h3>
+                                    <p class="text-muted text-sm uppercase tracking-widest">Alcocrete™ Furniture</p>
                                 </div>
                                 <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
@@ -527,14 +442,14 @@
                             </div>
                         </a>
 
-                        <a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
+                        <a href="fiber_glass_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Fiber Glass gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/raq.webp" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
+                                <img src="images/raq.webp" alt="GRC Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">GRC Wall Cladding @ Jebel Ali</h3>
-                                    <p class="text-muted text-sm uppercase tracking-widest">GRC Wall Cladding</p>
+                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">GRC Wall Cladding</h3>
+                                    <p class="text-muted text-sm uppercase tracking-widest">Fibre Glass Wall Cladding</p>
                                 </div>
                                 <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
@@ -542,76 +457,35 @@
                             </div>
                         </a>
 			
-			<a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
+                        <a href="urban_landscape_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Urban Landscape gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
                                 <img src="images/play.webp" alt="Play Element" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">Foosball Table</h3>
-                                    <p class="text-muted text-sm uppercase tracking-widest">Play Elements</p>
+                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight"> Urban Precast Foosball Table</h3>
+                                    <p class="text-muted text-sm uppercase tracking-widest">Urban Precast Play Elements</p>
                                 </div>
                                 <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
                                 </div>
                             </div>
                         </a>
-			<a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
+
+                        <a href="urban_landscape_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Urban Landscape gallery">
                             <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
                                 <img src="images/wood.webp" alt="Wood finish concrete texture" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                             </div>
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight"></h3>
-                                    <p class="text-muted text-sm uppercase tracking-widest">GRC Wall Cladding</p>
+                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">Wood Finish Concrete</h3>
+                                    <p class="text-muted text-sm uppercase tracking-widest">Custom Textured Cladding</p>
                                 </div>
                                 <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
                                 </div>
                             </div>
-			</a>
-                        <a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
-                            <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/raq.webp" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
-                            </div>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">GRC Wall Cladding @ Jebel Ali</h3>
-                                    <p class="text-muted text-sm uppercase tracking-widest">GRC Wall Cladding</p>
-                                </div>
-                                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
-                                </div>
-                            </div>
-			</a>
-                        <a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
-                            <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/raq.webp" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
-                            </div>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">GRC Wall Cladding @ Jebel Ali</h3>
-                                    <p class="text-muted text-sm uppercase tracking-widest">GRC Wall Cladding</p>
-                                </div>
-                                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
-                                </div>
-                            </div>
-			</a>
-                        <a href="industrial_precast_gallery.html" class="group block reveal even:md:mt-32 relative" aria-label="View Industrial Precast gallery">
-                            <div class="parallax-wrap aspect-[4/5] sm:aspect-[4/3] md:aspect-[4/5] mb-8 bg-[#111]">
-                                <img src="images/raq.webp" alt="Grc Wall Cladding @ Jebel Ali" class="parallax-img w-full h-[130%] object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
-                            </div>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h3 class="text-3xl md:text-4xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors variable-weight">GRC Wall Cladding @ Jebel Ali</h3>
-                                    <p class="text-muted text-sm uppercase tracking-widest">GRC Wall Cladding</p>
-                                </div>
-                                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
-                                </div>
-                            </div>
-			</a>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -633,7 +507,16 @@
                                     <div class="flex flex-wrap gap-2">
                                         <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Benches</span>
                                         <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Seats</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Picnic Sets</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Planters</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Playground Elements</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Barbecue Counters</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Litter Bins</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Signage</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Tree Grates </span>
                                         <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Bollards</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Boardwalks</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Bicycle Racks</span>
                                     </div>
                                 </div>
                                 <div class="md:col-span-1 flex justify-start md:justify-end mt-4 md:mt-0">
@@ -654,7 +537,11 @@
                                 <div class="md:col-span-7">
                                     <p class="text-muted font-light leading-relaxed mb-4 group-hover:text-gray-300 transition-colors">Cast and cured in our factory using precise moulds. Manufactured under controlled conditions enabling strict quality control for structural aesthetics.</p>
                                     <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Steps & Risers</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Fountains</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Balustrades</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Wall Copings & Claddings </span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Step,Threads& Risers</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Stepping Stones</span>
                                         <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Coping Stones</span>
                                     </div>
                                 </div>
@@ -677,7 +564,13 @@
                                     <p class="text-muted font-light leading-relaxed mb-4 group-hover:text-gray-300 transition-colors">Serving power generation, water distribution, and sewage disposal sectors. We provide robust, high-load precast components customized with client logos and lettering.</p>
                                     <div class="flex flex-wrap gap-2">
                                         <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Manholes</span>
-                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Cable Troughs</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Cable Tiles</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Duct Markers</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Cable Trough</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Boundary Walls </span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Route Markers</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Earth Pits</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Fence Poles</span>
                                     </div>
                                 </div>
                                 <div class="md:col-span-1 flex justify-start md:justify-end mt-4 md:mt-0">
@@ -698,9 +591,13 @@
                                 <div class="md:col-span-7">
                                     <p class="text-muted font-light leading-relaxed mb-4 group-hover:text-gray-300 transition-colors">As part of our continued innovation, we shape how buildings are perceived through ultra-lightweight, high-strength decorative facades, complex architectural screens, and claddings.</p>
                                     <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Facade Engineering</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Facades</span>
                                         <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Decorative Screens</span>
-                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">GRG Elements</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Colums</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Cladding Panels</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Planters</span>
+                                        
+                                        
                                     </div>
                                 </div>
                                 <div class="md:col-span-1 flex justify-start md:justify-end mt-4 md:mt-0">
@@ -723,7 +620,10 @@
                                     <div class="flex flex-wrap gap-2">
                                         <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Tactile Pavers</span>
                                         <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Stepping Stones</span>
-                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Plain / Reinforced</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Roof Tile </span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Terrazzo </span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Roof Tile </span>
+
                                     </div>
                                 </div>
                                 <div class="md:col-span-1 flex justify-start md:justify-end mt-4 md:mt-0">
@@ -733,11 +633,33 @@
                                 </div>
                             </div>
                         </a>
+
+                         <a href="paving_tiles_gallery.html" class="block py-12 border-b border-white/10 group hover:bg-white/[0.03] transition-colors reveal delay-300">
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                                <div class="md:col-span-1 text-muted font-display text-xl">06.</div>
+                                <div class="md:col-span-3">
+                                    <h3 class="text-3xl font-display font-medium group-hover:translate-x-2 transition-transform duration-300 variable-weight">Architectural Essentials</h3>
+                                    <p class="text-xs uppercase tracking-widest text-white mt-4 opacity-70 group-hover:opacity-100 transition-opacity">Edges & Anchors</p>
+                                </div>
+                                <div class="md:col-span-7">
+                                    <p class="text-muted font-light leading-relaxed mb-4 group-hover:text-gray-300 transition-colors">Precision wet cast kerbstones and Precast wheel stoppers designed with architectural finishes. Available in Plain, Polished and Shot Blasted profiles.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Kerbstones</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Wheel Stoppers</span>
+                                        <span class="px-3 py-1 border border-white/20 text-xs rounded-full group-hover:border-white/50 transition-colors">Spacers</span>              
+                                    </div>
+                                </div>
+                                <div class="md:col-span-1 flex justify-start md:justify-end mt-4 md:mt-0">
+                                    <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300 transform group-hover:-rotate-45 bg-[#0a0a0a]">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    </div>
+                                </div>
+                            </div>   
+                        </a>
                     </div>
                 </div>
             </section>
 
-<!-- Footer / Contact Section -->
             <footer id="contact" class="skew-container py-32 px-6 relative overflow-hidden z-10 border-t border-white/10">
                 <div class="max-w-screen-2xl mx-auto flex flex-col items-center text-center z-10 relative">
                     <h2 class="font-display text-[10vw] md:text-[8vw] font-medium tracking-tighter uppercase leading-none mb-8 reveal variable-weight">
@@ -745,17 +667,15 @@
                     </h2>
                     <p class="text-xl text-muted mb-12 reveal delay-100">Start your next iconic project with Alcon.</p>
                     
-                    <!-- Main Email CTA Button -->
                     <a href="mailto:sales@alcon.ae" 
-   class="reveal delay-200 inline-flex items-center justify-center bg-white text-black font-medium text-sm uppercase tracking-widest px-10 py-5 rounded-full hover:scale-105 transition-transform duration-300 relative z-20">
-    sales@alcon.ae
-</a>
+                       class="reveal delay-200 inline-flex items-center justify-center bg-white text-black font-medium text-sm uppercase tracking-widest px-10 py-5 rounded-full hover:scale-105 transition-transform duration-300 relative z-20">
+                        sales@alcon.ae
+                    </a>
                 </div>
                 
                 <div class="max-w-screen-2xl mx-auto mt-32 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted uppercase tracking-widest reveal relative z-10">
                     <p>&copy; 2026 Alcon Concrete Products LLC.</p>
                     <div class="flex flex-wrap items-center gap-6">
-                        <!-- Live Google Maps Location Link -->
                         <a href="https://www.google.com/maps/search/?api=1&query=Alcon+Concrete+Products+LLC+Dubai+Industrial+City" 
                            target="_blank" 
                            rel="noopener noreferrer" 
@@ -767,7 +687,6 @@
                             Dubai Industrial City
                         </a>
 
-                        <!-- Direct Phone Dialer Link -->
                         <a href="tel:+97145474474" 
                            class="hover:text-white transition-colors relative z-20 flex items-center gap-1.5 group">
                             <svg class="w-3.5 h-3.5 text-muted group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -788,7 +707,6 @@
             const torch = document.getElementById('torch-light');
             const torchDisplacement = document.getElementById('torch-displacement');
             
-            // --- PHYSICS LAYOUT COORDINATES FOR INVERSION MAGNET DELAY ---
             let mouseX = 0, mouseY = 0;      
             let lensX = 0, lensY = 0;        
             let lastMouseX = 0, lastMouseY = 0;
@@ -799,7 +717,6 @@
                 if (!torch) return;
                 torch.style.opacity = '1';
                 mouseX = event.clientX;
-                // Keep the lens visible above a finger while preserving the exact cursor position for a mouse.
                 mouseY = event.clientY + (event.pointerType === 'touch' ? -48 : 0);
             };
 
@@ -820,7 +737,6 @@
             document.addEventListener('pointercancel', () => { torch.style.opacity = '0'; }, { passive: true });
             window.addEventListener('blur', () => { torch.style.opacity = '0'; });
 
-            // --- ME DIGITAL INSTANTIATION LOGIC VARIABLES ---
             const smoothContent = document.getElementById('smooth-content');
             const parallaxImages = document.querySelectorAll('.parallax-img');
             const skewContainers = document.querySelectorAll('.skew-container');
@@ -867,34 +783,27 @@
                 });
             });
 
-            // --- CENTRALIZED ENGINE TICK FRAME ---
             function processUnifiedRenderLoop() {
-                // 1. Mouse Velocity Calculation for Glitch Lens
                 let dx = mouseX - lastMouseX;
                 let dy = mouseY - lastMouseY;
                 let mouseSpeed = Math.sqrt(dx*dx + dy*dy);
                 lastMouseX = mouseX;
                 lastMouseY = mouseY;
 
-                // Smooth out the glitch scale targeting
                 let targetGlitch = Math.min(mouseSpeed * 1.5, 45); 
                 currentGlitchScale += (targetGlitch - currentGlitchScale) * 0.15;
                 if(torchDisplacement) torchDisplacement.setAttribute('scale', currentGlitchScale);
 
-                // Linearly Interpolate Lens positions
                 lensX += (mouseX - lensX) * lensEase;
                 lensY += (mouseY - lensY) * lensEase;
                 torch.style.left = `${lensX}px`;
                 torch.style.top = `${lensY}px`;
 
-                // 2. Linearly Interpolate Scroll Track positions
                 targetY = window.scrollY;
                 currentY += (targetY - currentY) * scrollEase;
                 
                 let scrollVelocity = targetY - currentY;
                 let calculatedSkew = Math.max(-4, Math.min(4, scrollVelocity * 0.015)); 
-                
-                // Variable Font Axis Shifting based on speed
                 let fontWeight = 400 + Math.min(Math.abs(scrollVelocity * 5), 300);
 
                 smoothContent.style.transform = `translate3d(0, -${currentY}px, 0)`;
@@ -909,7 +818,6 @@
 
                 const viewHeight = window.innerHeight;
 
-                // Parallax Image Translations inside moving frame bounds
                 parallaxImages.forEach(img => {
                     const parentWrap = img.parentElement;
                     const rect = parentWrap.getBoundingClientRect();
@@ -924,7 +832,6 @@
             }
             requestAnimationFrame(processUnifiedRenderLoop);
 
-            // Anchor links navigation route conversion
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -943,13 +850,12 @@
                 });
             });
 
-            // Intersection Observer for sub reveals
             const observerOptions = { root: null, rootMargin: '0px', threshold: 0.12 };
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries, observerInstance) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
+                        observerInstance.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
@@ -957,7 +863,6 @@
             const revealElements = document.querySelectorAll('.reveal');
             revealElements.forEach(el => observer.observe(el));
 
-            // Escofet Fullscreen Menu Trigger Logic
             const menuToggle = document.getElementById('menu-toggle');
             const fullscreenMenu = document.getElementById('fullscreen-menu');
             const barTop = document.getElementById('bar-top');

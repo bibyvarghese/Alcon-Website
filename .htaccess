@@ -55,7 +55,6 @@ Options -Indexes -MultiViews
 
 RewriteRule ^(?:\.git|\.svn|\.hg|\.env|admin|wp-admin|phpmyadmin|cgi-bin|node_modules|vendor|backup|logs)(?:/|$) - [R=404,L,NC]
 RewriteRule ^(?:.*\.){2,}.*$ - [R=404,L,NC]
-RewriteRule ^([^/]+/)+[^/]+/?$ - [R=404,L,NC]
 
 <FilesMatch "^(\.git|\.env|composer\.(json|lock)|package(-lock)?\.json|.*\.bak|.*\.sql)$">
     Require all denied

@@ -27,6 +27,7 @@
 
         const close = () => {
             modal.hidden = true;
+            modal.style.display = 'none'; // Clears the inline flex so it hides
             document.body.style.overflow = '';
             if (previouslyFocused) previouslyFocused.focus();
         };

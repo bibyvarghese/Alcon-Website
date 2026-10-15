@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#0a0a0a] text-white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete the form to download the Alcon Concrete Products product catalogue.">
+    <title>Product Catalogue | ALCON</title>
+    <link rel="icon" type="image/webp" href="images/logo2.webp">
+    <link rel="canonical" href="https://www.alcon.ae/catalogue-request.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] } } } };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gallery-effects.css">
+    <link rel="stylesheet" href="shared-header.css">
+    <style>
+        .catalogue-form input:not([type="checkbox"]) {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 0;
+            background: rgba(255, 255, 255, 0.035);
+            color: #fff;
+            outline: none;
+            transition: border-color 180ms ease, background-color 180ms ease;
+        }
+
+        .catalogue-form input:not([type="checkbox"]) {
+            min-height: 3.25rem;
+            padding: 0.75rem 1rem;
+        }
+
+        .catalogue-form input:not([type="checkbox"]):focus {
+            border-color: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .catalogue-form input:not([type="checkbox"])::placeholder {
+            color: #737373;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#0a0a0a] font-sans antialiased text-white selection:bg-white selection:text-black">
+    <header class="border-b border-white/10 px-6 py-6 md:px-12">
+        <div class="mx-auto flex max-w-screen-2xl items-center justify-between">
+            <a href="Index.html" aria-label="Alcon home"><img src="images/logo.webp" alt="Alcon Logo" class="h-10 w-auto md:h-14"></a>
+            <a href="Index.html" class="text-xs uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:text-white">Back home</a>
+        </div>
+    </header>
+
+    <main class="gallery-hero mx-auto max-w-screen-2xl px-6 py-16 md:px-12 md:py-24">
+        <section class="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-12 md:items-end md:pb-20">
+            <div class="md:col-span-8">
+                <p class="reveal mb-6 text-xs uppercase tracking-[0.3em] text-neutral-500">Alcon / Product information</p>
+                <h1 class="reveal font-display text-6xl uppercase leading-[0.82] tracking-tight md:text-[9vw]">Product<br><span class="text-neutral-500">catalogue.</span></h1>
+            </div>
+            <p class="reveal delay-100 max-w-md text-lg font-light leading-relaxed text-neutral-400 md:col-span-4">
+                Enter your contact details to unlock the Alcon product catalogue download.
+            </p>
+        </section>
+
+        <section class="grid gap-12 py-12 md:grid-cols-12 md:gap-16 md:py-16">
+            <aside class="md:col-span-4">
+                <p class="mb-5 text-xs uppercase tracking-[0.3em] text-neutral-500">One catalogue / full product range</p>
+                <p class="max-w-sm text-sm leading-relaxed text-neutral-400">
+                    We check your email domain and phone-number format. When you download the catalogue, the details below are sent to sales@alcon.ae.
+                </p>
+                <div class="mt-10 border-t border-white/10 pt-6">
+                    <p class="mb-3 text-xs uppercase tracking-[0.2em] text-neutral-500">Questions?</p>
+                    <a class="text-sm text-white underline underline-offset-4 hover:text-neutral-300" href="mailto:sales@alcon.ae">sales@alcon.ae</a>
+                </div>
+            </aside>
+
+            <form id="catalogue-request-form" class="catalogue-form space-y-10 md:col-span-8" novalidate>
+                <div class="grid gap-7 sm:grid-cols-2">
+                    <label class="block">
+                        <span class="mb-2 block text-xs uppercase tracking-[0.18em] text-neutral-300">Full name <span aria-hidden="true">*</span></span>
+                        <input name="name" autocomplete="name" required maxlength="120" placeholder="Your name">
+                    </label>
+                    <label class="block">
+                        <span class="mb-2 block text-xs uppercase tracking-[0.18em] text-neutral-300">Email address <span aria-hidden="true">*</span></span>
+                        <input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="name@company.com">
+                        <span class="mt-2 block text-xs leading-relaxed text-neutral-500">We check the email format only. Without an email verification link, we cannot confirm that the address exists or belongs to you.</span>
+                    </label>
+                    <label class="block">
+                        <span class="mb-2 block text-xs uppercase tracking-[0.18em] text-neutral-300">Phone number <span aria-hidden="true">*</span></span>
+                        <input name="phone" type="tel" autocomplete="tel" inputmode="tel" required minlength="8" maxlength="30" title="Enter a valid phone number in international format, starting with + and its country code." placeholder="+971 50 123 4567">
+                        <span class="mt-2 block text-xs leading-relaxed text-neutral-500">Use international format with + and country code. This free check cannot confirm that the number is active or belongs to you.</span>
+                    </label>
+                    <label class="block">
+                        <span class="mb-2 block text-xs uppercase tracking-[0.18em] text-neutral-300">Company <span class="text-neutral-500">(optional)</span></span>
+                        <input name="company" autocomplete="organization" maxlength="160" placeholder="Company name">
+                    </label>
+                </div>
+
+                <label class="flex items-start gap-3 text-sm leading-relaxed text-neutral-400">
+                    <input name="consent" type="checkbox" required class="mt-1 h-4 w-4 shrink-0 accent-white">
+                    <span>I agree to send my name, email, phone number, and company (if provided) to Alcon Sales at sales@alcon.ae when I download the catalogue.</span>
+                </label>
+
+                <div class="flex flex-col items-start gap-4 border-t border-white/10 pt-7">
+                    <button type="submit" class="inline-flex min-h-14 items-center justify-center bg-white px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-black transition-colors hover:bg-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">
+                        Continue to download <span class="ml-4" aria-hidden="true">↗</span>
+                    </button>
+                    <p id="form-status" class="text-sm text-neutral-400" role="status" aria-live="polite"></p>
+                    <a id="catalogue-download" class="hidden min-h-14 items-center justify-center border border-white/40 px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-white transition-colors hover:border-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4" href="catalogue.pdf" download="Alcon-Product-Catalogue.pdf">
+                        Download product catalogue <span class="ml-4" aria-hidden="true">↓</span>
+                    </a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="border-t border-white/10 px-6 py-8 md:px-12">
+        <div class="mx-auto flex max-w-screen-2xl flex-col justify-between gap-4 text-xs uppercase tracking-[0.2em] text-neutral-500 sm:flex-row">
+            <p>&copy; 2026 Alcon Concrete Products LLC.</p>
+            <div class="flex flex-wrap gap-6">
+                <a href="contact.html" class="transition-colors hover:text-white">Contact</a>
+                <a href="Index.html" class="transition-colors hover:text-white">Return home</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/libphonenumber-js@1.11.20/bundle/libphonenumber-js.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("catalogue-request-form");
+            const status = document.getElementById("form-status");
+            const download = document.getElementById("catalogue-download");
+            const email = form.elements.email;
+            const phone = form.elements.phone;
+            const submitButton = form.querySelector('button[type="submit"]');
+            let downloadInProgress = false;
+            let dnsCheckController = null;
+
+            const validateEmail = () => {
+                const value = email.value.trim();
+                const atIndex = value.lastIndexOf("@");
+                const domain = atIndex >= 0 ? value.slice(atIndex + 1) : "";
+                const labels = domain.split(".");
+                const hasValidDomain = labels.length >= 2
+                    && labels.every(label =>
+                        label.length > 0
+                        && label.length <= 63
+                        && /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(label)
+                    );
+
+                email.setCustomValidity(
+                    value && (!email.validity.typeMismatch && !hasValidDomain)
+                        ? "Enter an email address with a valid domain, such as name@company.com."
+                        : ""
+                );
+            };
+
+            const validatePhone = () => {
+                const value = phone.value.trim();
+                let isValid = false;
+
+                if (value && window.libphonenumber
+                    && typeof window.libphonenumber.parsePhoneNumberFromString === "function") {
+                    const parsedPhone = window.libphonenumber.parsePhoneNumberFromString(value);
+                    isValid = Boolean(parsedPhone && parsedPhone.isValid() && value.startsWith("+"));
+                }
+
+                phone.setCustomValidity(value && !isValid
+                    ? "Enter a valid international phone number with + and its country code."
+                    : "");
+                return isValid;
+            };
+
+            const hideDownload = () => {
+                download.classList.add("hidden");
+                download.classList.remove("inline-flex");
+            };
+
+            const cancelDnsCheck = () => {
+                if (dnsCheckController) {
+                    dnsCheckController.abort();
+                    dnsCheckController = null;
+                    submitButton.disabled = false;
+                }
+            };
+
+            phone.addEventListener("input", () => {
+                validatePhone();
+                hideDownload();
+                status.textContent = "";
+            });
+
+            email.addEventListener("input", () => {
+                validateEmail();
+                cancelDnsCheck();
+            });
+            form.addEventListener("input", () => {
+                cancelDnsCheck();
+                hideDownload();
+                status.textContent = "";
+            });
+
+            form.addEventListener("submit", async event => {
+                event.preventDefault();
+
+                if (!window.libphonenumber
+                    || typeof window.libphonenumber.parsePhoneNumberFromString !== "function") {
+                    hideDownload();
+                    status.textContent = "Phone validation could not load. Check your connection and try again.";
+                    return;
+                }
+
+                validateEmail();
+                validatePhone();
+                if (!form.reportValidity())
+                    return;
+
+                const emailDomain = email.value.trim().slice(email.value.lastIndexOf("@") + 1);
+                const controller = new AbortController();
+                dnsCheckController = controller;
+                submitButton.disabled = true;
+                hideDownload();
+                status.textContent = "Checking email domain mail DNS records...";
+
+                try {
+                    const response = await fetch("/api/email-domain-check", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ domain: emailDomain }),
+                        signal: controller.signal
+                    });
+                    let result;
+                    try {
+                        result = await response.json();
+                    } catch {
+                        throw new Error("Email DNS verification is unavailable. This page must be served by the website server to perform the check.");
+                    }
+
+                    if (dnsCheckController !== controller)
+                        return;
+
+                    if (!response.ok)
+                        throw new Error(result.message || "Email domain DNS could not be checked.");
+
+                    if (!result.valid) {
+                        status.textContent = "This email domain has no mail-routing DNS records. Check the email address and try again.";
+                        return;
+                    }
+
+                    download.classList.remove("hidden");
+                    download.classList.add("inline-flex");
+                    status.textContent = "Email domain DNS and phone numbering plan are valid. When you choose to download, your details will be emailed to Alcon Sales. DNS cannot confirm that the mailbox exists, and phone format does not confirm that the number is active or belongs to you.";
+                    download.focus();
+                } catch (error) {
+                    if (error.name !== "AbortError")
+                        status.textContent = error.message || "Email domain DNS could not be checked right now. Please try again.";
+                } finally {
+                    if (dnsCheckController === controller) {
+                        dnsCheckController = null;
+                        submitButton.disabled = false;
+                    }
+                }
+            });
+
+            download.addEventListener("click", async event => {
+                event.preventDefault();
+                if (downloadInProgress)
+                    return;
+
+                if (!form.reportValidity())
+                    return;
+
+                downloadInProgress = true;
+                download.setAttribute("aria-disabled", "true");
+                status.textContent = "Sending your details to Alcon Sales and preparing the catalogue...";
+
+                try {
+                    const response = await fetch("/api/catalogue-download", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            name: form.elements.name.value.trim(),
+                            email: email.value.trim(),
+                            phone: phone.value.trim(),
+                            company: form.elements.company.value.trim(),
+                            consent: form.elements.consent.checked
+                        })
+                    });
+
+                    if (!response.ok) {
+                        const result = await response.json();
+                        throw new Error(result.message || "The catalogue could not be downloaded.");
+                    }
+
+                    const file = await response.blob();
+                    const objectUrl = URL.createObjectURL(file);
+                    const temporaryLink = document.createElement("a");
+                    temporaryLink.href = objectUrl;
+                    temporaryLink.download = "Alcon-Product-Catalogue.pdf";
+                    document.body.appendChild(temporaryLink);
+                    temporaryLink.click();
+                    temporaryLink.remove();
+                    window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+                    status.textContent = "Your details were sent to Alcon Sales and the catalogue download has started.";
+                } catch (error) {
+                    status.textContent = error.message || "The catalogue could not be downloaded. Please try again.";
+                } finally {
+                    downloadInProgress = false;
+                    download.removeAttribute("aria-disabled");
+                }
+            });
+        });
+    </script>
+    <script src="gallery-effects.js"></script>
+    <script src="shared-header.js"></script>
+</body>
+</html>

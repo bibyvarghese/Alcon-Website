@@ -142,10 +142,12 @@ app.post('/api/catalogue-download', express.json({ limit: '8kb' }), async (req, 
     });
   }
 
+  const smtpSecure = process.env.SMTP_SECURE === 'true' || smtpPort === 465;
   const transporter = nodemailer.createTransport({
     host: SMTP_HOST,
     port: smtpPort,
-    secure: process.env.SMTP_SECURE === 'true' || smtpPort === 465,
+    secure: smtpSecure,
+    requireTLS: !smtpSecure,
     auth: { user: SMTP_USER, pass: SMTP_PASS }
   });
 

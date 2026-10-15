@@ -1,12 +1,19 @@
 {
   "name": "alcon-website-local",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build:css": "tailwindcss -i ./styles/tailwind.input.css -o ./styles/tailwind.css --minify"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "nodemailer": "^7.0.3"
+    "nodemailer": "^10.1.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
   }
 }

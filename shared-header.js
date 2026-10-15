@@ -23,7 +23,7 @@
             </header>
             <div class="shared-site-menu" aria-hidden="true">
                 <nav class="shared-site-menu__links" aria-label="Menu navigation">
-                    <a href="/">Home</a><a href="/#about">About</a><a href="/#products">Capabilities</a><a href="/#portfolio">Projects</a><a href="/#contact">Contact</a>
+                    <a href="/">Home</a><a href="/#about">About</a><a href="/#products">Capabilities</a><a href="/#portfolio">Projects</a><a href="catalogue-request.html">Product Catalogue</a><a href="/#contact">Contact</a>
                 </nav>
                 <div class="shared-site-menu__footer">Alcon Concrete Products LLC / Dubai, UAE</div>
             </div>`);

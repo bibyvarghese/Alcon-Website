@@ -185,6 +185,24 @@ app.get('/catalogue.pdf', (req, res) =>
   res.status(404).send('Please use the catalogue request form to download this file.')
 );
 
+app.get('/sitemap.xml', (req, res) => {
+  res.sendFile(path.join(__dirname, 'sitemap.xml'), err => {
+    if (err) {
+      console.error('Failed to send sitemap.xml:', err);
+      res.status(500).send('Sitemap could not be loaded.');
+    }
+  });
+});
+
+app.get('/robots.txt', (req, res) => {
+  res.sendFile(path.join(__dirname, 'robots.txt'), err => {
+    if (err) {
+      console.error('Failed to send robots.txt:', err);
+      res.status(500).send('Robots file could not be loaded.');
+    }
+  });
+});
+
 app.use(express.static(__dirname));
 
 app.use((req, res) => {

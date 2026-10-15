@@ -475,6 +475,8 @@
             position: relative;
 
             background: var(--text);
+
+            transform-origin: left center;
         }
 
         .dimension-line::before,
@@ -519,13 +521,6 @@
 
             white-space: nowrap;
         }
-
-        .dimension-height {
-            transform-origin: 0 0;
-
-            transform: rotate(90deg);
-        }
-
 
         /* =====================================================
            SCROLL INDICATOR
@@ -964,9 +959,9 @@
 
                 <p class="hero-description">
 
-                    Precision concrete spacer blocks engineered
-                    to maintain reinforcement cover and positioning
-                    throughout concrete construction.
+                    A 3D concept study of a concrete spacer block
+                    used to maintain reinforcement cover and position
+                    during site preparation and placement.
 
                 </p>
 
@@ -1090,11 +1085,10 @@
 
         <p class="section-text">
 
-            Alcon spacer blocks are designed to maintain the
-            specified separation between reinforcement and
-            formwork. Their shaped profile provides a stable
-            support point while allowing reinforcement to remain
-            correctly positioned during concrete placement.
+            This concept explores a spacer block profile intended
+            to maintain consistent reinforcement cover and support
+            during concrete placement. The shaped form is presented
+            as a visual study for positioning and handling on site.
 
         </p>
 
@@ -1126,11 +1120,11 @@
             <div class="spec">
 
                 <div class="spec-label">
-                    Product
+                    Concept
                 </div>
 
                 <div class="spec-value">
-                    Spacer Block
+                    Spacer Block Study
                 </div>
 
             </div>
@@ -1139,11 +1133,11 @@
             <div class="spec">
 
                 <div class="spec-label">
-                    Marking
+                    Profile
                 </div>
 
                 <div class="spec-value">
-                    75 MM
+                    Illustrated Form
                 </div>
 
             </div>
@@ -1156,7 +1150,7 @@
                 </div>
 
                 <div class="spec-value">
-                    Concrete
+                    Concrete Finish
                 </div>
 
             </div>
@@ -1165,11 +1159,11 @@
             <div class="spec">
 
                 <div class="spec-label">
-                    Function
+                    Use
                 </div>
 
                 <div class="spec-value">
-                    Rebar Cover
+                    Cover Concept
                 </div>
 
             </div>
@@ -1277,9 +1271,9 @@
 
             <p>
 
-                Looking for spacer blocks for your project?
-                Contact Alcon for product specifications,
-                availability and project requirements.
+                Looking for a spacer block concept for your project?
+                Contact Alcon to discuss dimensions, availability,
+                and project-specific requirements.
 
             </p>
 
@@ -1523,7 +1517,7 @@
         const concreteMaterial =
             new THREE.MeshStandardMaterial({
 
-                color: 0xd6d6d2,
+                color: 0x888884,
 
                 roughness: 0.95,
 
@@ -1716,12 +1710,31 @@
         ===================================================== */
 
         const bgCount =
-            75;
+            170;
+
+        const bgMaterial =
+            new THREE.MeshStandardMaterial({
+
+                color: 0x888884,
+
+                roughness: 0.82,
+
+                metalness: 0.02,
+
+                transparent: true,
+
+                opacity: 0.96,
+
+                emissive: 0x101010,
+
+                emissiveIntensity: 0.35
+
+            });
 
         const bgSpacers =
             new THREE.InstancedMesh(
                 baseGeometry,
-                concreteMaterial,
+                bgMaterial,
                 bgCount
             );
 
@@ -1738,19 +1751,19 @@
 
             const x =
                 THREE.MathUtils.randFloatSpread(
-                    35
+                    38
                 );
 
             const y =
                 THREE.MathUtils.randFloat(
-                    -20,
-                    -60
+                    -16,
+                    -48
                 );
 
             const z =
                 THREE.MathUtils.randFloat(
                     -10,
-                    -35
+                    -40
                 );
 
             const rx =
@@ -1770,20 +1783,20 @@
 
             const scale =
                 THREE.MathUtils.randFloat(
-                    0.2,
+                    0.18,
                     0.7
                 );
 
             const speed =
                 THREE.MathUtils.randFloat(
-                    40,
-                    90
+                    30,
+                    82
                 );
 
             const rotSpeed =
                 THREE.MathUtils.randFloat(
-                    0.05,
-                    0.25
+                    0.06,
+                    0.22
                 );
 
             bgData.push({
@@ -2084,57 +2097,47 @@
 
             const topPoint =
                 toScreenXY(
-
                     new THREE.Vector3(
                         0,
                         PRODUCT.height / 2,
-                        0
+                        PRODUCT.depth / 2
                     )
-
                 );
 
             const botPoint =
                 toScreenXY(
-
                     new THREE.Vector3(
                         0,
                         -PRODUCT.height / 2,
-                        0
+                        PRODUCT.depth / 2
                     )
-
                 );
 
             const centerHolePoint =
                 toScreenXY(
-
                     new THREE.Vector3(
                         0,
                         0,
                         PRODUCT.depth / 2
                     )
-
                 );
 
             const rightEdge =
                 toScreenXY(
-
                     new THREE.Vector3(
                         PRODUCT.widthBottom / 2,
                         -PRODUCT.height / 2,
-                        0
+                        PRODUCT.depth / 2
                     )
-
                 );
 
             const leftEdge =
                 toScreenXY(
-
                     new THREE.Vector3(
                         -PRODUCT.widthBottom / 2,
                         -PRODUCT.height / 2,
-                        0
+                        PRODUCT.depth / 2
                     )
-
                 );
 
             const topY =
@@ -2163,6 +2166,123 @@
                     rightX - leftX,
                     60
                 );
+
+            const modelCorners = [];
+
+            for (const [y, halfWidth] of [
+                [-PRODUCT.height / 2, PRODUCT.widthBottom / 2],
+                [PRODUCT.height / 2, PRODUCT.widthTop / 2]
+            ]) {
+                for (const x of [-halfWidth, halfWidth]) {
+                    for (const z of [
+                        -PRODUCT.depth / 2,
+                        PRODUCT.depth / 2
+                    ]) {
+                        modelCorners.push(
+                            toScreenXY(
+                                new THREE.Vector3(x, y, z)
+                            )
+                        );
+                    }
+                }
+            }
+
+            const modelRect = {
+                left: Math.min(...modelCorners.map(point => point.x)),
+                right: Math.max(...modelCorners.map(point => point.x)),
+                top: Math.min(...modelCorners.map(point => point.y)),
+                bottom: Math.max(...modelCorners.map(point => point.y))
+            };
+
+            const dimensionWidth =
+                document.getElementById("dimensionWidth");
+
+            const widthLine =
+                dimensionWidth.querySelector(".dimension-line");
+
+            const widthLabel =
+                dimensionWidth.querySelector(".dimension-value");
+
+            const widthTop =
+                modelRect.bottom + 20 >
+                window.innerHeight - 40
+                    ? modelRect.top - 20
+                    : modelRect.bottom + 20;
+
+            dimensionWidth.style.left =
+                `${modelRect.left}px`;
+
+            dimensionWidth.style.top =
+                `${widthTop}px`;
+
+            widthLine.style.width =
+                `${Math.max(modelRect.right - modelRect.left, 1)}px`;
+
+            widthLine.style.transform =
+                "none";
+
+            widthLabel.style.left =
+                "50%";
+
+            widthLabel.style.top =
+                "8px";
+
+            widthLabel.style.transform =
+                "translateX(-50%)";
+
+            const dimensionHeight =
+                document.getElementById("dimensionHeight");
+
+            const heightLine =
+                dimensionHeight.querySelector(".dimension-line");
+
+            const heightLabel =
+                dimensionHeight.querySelector(".dimension-value");
+
+            const heightLabelWidth =
+                heightLabel.offsetWidth;
+
+            const heroCopyRight =
+                document
+                    .querySelector(".hero-copy")
+                    .getBoundingClientRect()
+                    .right;
+
+            const rightSideFits =
+                modelRect.right + 20 + heightLabelWidth <
+                window.innerWidth - 8;
+
+            const leftSideFits =
+                modelRect.left - 20 - heightLabelWidth >
+                    Math.max(heroCopyRight, 8);
+
+            const useRightSide =
+                rightSideFits || !leftSideFits;
+
+            dimensionHeight.style.left =
+                `${useRightSide
+                    ? modelRect.right + 20
+                    : modelRect.left - 20}px`;
+
+            dimensionHeight.style.top =
+                `${modelRect.top}px`;
+
+            heightLine.style.width =
+                `${Math.max(modelRect.bottom - modelRect.top, 1)}px`;
+
+            heightLine.style.transform =
+                "rotate(90deg)";
+
+            heightLabel.style.left =
+                "50%";
+
+            heightLabel.style.top =
+                useRightSide
+                    ? "-23px"
+                    : "8px";
+
+            heightLabel.style.transform =
+                "translateX(-50%) rotate(-90deg)";
 
             const calloutTop =
                 document.getElementById(
@@ -2206,54 +2326,6 @@
 
                 calloutFeet.style.top =
                     `${botY - blockH * 0.1}px`;
-
-            }
-
-            const dimHeight =
-                document.getElementById(
-                    "dimensionHeight"
-                );
-
-            if (dimHeight) {
-
-                dimHeight.style.left =
-                    `${leftX - 45}px`;
-
-                dimHeight.style.top =
-                    `${topY}px`;
-
-                const line =
-                    dimHeight.querySelector(
-                        ".dimension-line"
-                    );
-
-                if (line)
-                    line.style.width =
-                        `${blockH}px`;
-
-            }
-
-            const dimWidth =
-                document.getElementById(
-                    "dimensionWidth"
-                );
-
-            if (dimWidth) {
-
-                dimWidth.style.left =
-                    `${leftX}px`;
-
-                dimWidth.style.top =
-                    `${botY + 32}px`;
-
-                const line =
-                    dimWidth.querySelector(
-                        ".dimension-line"
-                    );
-
-                if (line)
-                    line.style.width =
-                        `${blockW}px`;
 
             }
 
@@ -2418,7 +2490,7 @@
                     "active",
 
                     progress > 0.18 &&
-                    progress < 0.85
+                    progress < 0.52
 
                 );
 
@@ -2431,7 +2503,7 @@
                     "active",
 
                     progress > 0.38 &&
-                    progress < 0.85
+                    progress < 0.52
 
                 );
 
@@ -2443,8 +2515,8 @@
 
                     "active",
 
-                    progress > 0.65 &&
-                    progress < 0.85
+                    progress > 0.42 &&
+                    progress < 0.52
 
                 );
 
@@ -2456,7 +2528,7 @@
 
                     "active",
 
-                    progress > 0.25 &&
+                    progress > 0.54 &&
                     progress < 0.85
 
                 );
@@ -2469,7 +2541,7 @@
 
                     "active",
 
-                    progress > 0.50 &&
+                    progress > 0.54 &&
                     progress < 0.85
 
                 );

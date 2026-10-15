@@ -669,6 +669,106 @@
             letter-spacing: -.03em;
         }
 
+        /* =====================================================
+           MARKET OPTIONS
+        ===================================================== */
+
+        .variant-model-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 75px;
+            max-width: 1440px;
+        }
+
+        .variant-model {
+            min-width: 0;
+            margin: 0;
+            border: 1px solid var(--line);
+            background: var(--surface);
+        }
+
+        .stopper-illustration {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 267.36 / 69.7;
+            border-bottom: 1px solid var(--line);
+            background: #fbf7f2;
+        }
+
+        .variant-model figcaption {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 18px 20px;
+        }
+
+        .variant-model figcaption strong {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .variant-model figcaption span {
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .dimension-note {
+            max-width: 1440px;
+            margin-top: 28px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .finish-table-wrap {
+            margin-top: 55px;
+            overflow-x: auto;
+            border: 1px solid var(--line);
+        }
+
+        .finish-heading {
+            margin-top: 100px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(28px, 3.5vw, 48px);
+            line-height: .95;
+            letter-spacing: -.05em;
+        }
+
+        .finish-table {
+            width: 100%;
+            min-width: 560px;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .finish-table th,
+        .finish-table td {
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--line);
+            font-size: 13px;
+        }
+
+        .finish-table th {
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .finish-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .source-link {
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
 
         /* =====================================================
            APPLICATIONS
@@ -678,7 +778,7 @@
             display: grid;
 
             grid-template-columns:
-                repeat(4, 1fr);
+                repeat(3, minmax(0, 1fr));
 
             gap: 14px;
 
@@ -686,22 +786,28 @@
         }
 
         .application {
-            min-height: 260px;
+            min-height: 0;
+            aspect-ratio: 600 / 470;
 
             border: 1px solid var(--line);
-
-            padding: 25px;
-
-            display: flex;
-            align-items: flex-end;
 
             position: relative;
 
             overflow: hidden;
 
+            background: var(--surface);
+
             transition:
                 transform .45s ease,
                 background .45s ease;
+        }
+
+        .application-photo {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .45s ease;
         }
 
         .application:hover {
@@ -710,25 +816,24 @@
             background: var(--glass);
         }
 
+        .application:hover .application-photo {
+            transform: scale(1.035);
+        }
+
         .application-index {
             position: absolute;
 
             right: 22px;
             top: 20px;
 
-            color: var(--muted);
+            padding: 7px 10px;
+            color: var(--text);
+            background: rgba(8, 8, 8, .72);
 
             font-family: "Space Grotesk", sans-serif;
 
             font-size: 10px;
-        }
-
-        .application-name {
-            font-family: "Space Grotesk", sans-serif;
-
-            font-size: 22px;
-
-            letter-spacing: -.03em;
+            z-index: 1;
         }
 
 
@@ -853,6 +958,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .variant-model-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
             .application-grid {
                 grid-template-columns:
                     repeat(2, 1fr);
@@ -863,6 +972,10 @@
 
             .hero {
                 height: 195vh;
+            }
+
+            .variant-model-grid {
+                grid-template-columns: 1fr;
             }
 
             .application-grid {
@@ -1078,11 +1191,16 @@
         </h2>
 
         <p class="section-text">
+            Prevention is better than cure: Alcon precast concrete wheel stoppers
+            help keep vehicles within their allocated parking distance and away
+            from pavements, walls and other vehicles. They are designed for
+            indoor and outdoor parking areas and are strengthened with steel
+            reinforcement to help resist breakage.
+        </p>
 
-            This 3D model uses the supplied nominal size and
-            one-sided chamfer. Confirm final product and installation
-            details with Alcon before use.
-
+        <p class="section-text">
+            Standard lengths and finishes are listed below. Custom sizes and
+            colors can also be requested to suit project specifications.
         </p>
 
     </section>
@@ -1090,78 +1208,186 @@
 
 
     <!-- =========================================================
-         TECHNICAL SPECIFICATION
+         PRECAST DIMENSIONS
     ========================================================== -->
 
     <section class="section">
 
         <div class="section-index">
-            02 / TECHNICAL DATA
+            02 / PRECAST DIMENSIONS
         </div>
 
         <h2 class="section-title">
-
-            FINISH<br>
-            OPTIONS.
-
+            PRECAST<br>
+            DIMENSIONS.
         </h2>
 
+        <p class="section-text">
+            Alcon's published range includes twelve precast concrete profiles.
+            Each original product drawing contains the complete available
+            length, width and height combinations in millimetres.
+        </p>
 
-        <div class="spec-grid">
-
-
-            <div class="spec">
-
-                <div class="spec-label">
-                    Product
-                </div>
-
-                <div class="spec-value">
-                    Wheel Stopper Concept
-                </div>
-
-            </div>
-
-
-            <div class="spec">
-
-                <div class="spec-label">
-                    Dimensions
-                </div>
-
-                <div class="spec-value">
-                    1800 × 250 × 150 mm
-                </div>
-
-            </div>
-
-
-            <div class="spec">
-
-                <div class="spec-label">
-                    Chamfer
-                </div>
-
-                <div class="spec-value">
-                    80 × 80 mm, one long side
-                </div>
-
-            </div>
-
-
-            <div class="spec">
-
-                <div class="spec-label">
-                    Material / Finish
-                </div>
-
-                <div class="spec-value">
-                    Precast concrete; plain, polished or shot blasted
-                </div>
-
-            </div>
-
+        <div class="variant-model-grid">
+            <figure class="variant-model">
+                <a href="images/wheel-stopper-ws-11.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full WS 11 dimension drawing">
+                    <img class="stopper-illustration" src="images/wheel-stopper-ws-11.svg" alt="WS 11 dimension drawing: 2000 × 150 × 100 mm; 1900 × 150 × 100 mm; 1800 × 150 × 100 mm; 1000 × 150 × 100 mm; 900 × 150 × 100 mm; 600 × 150 × 100 mm" width="534" height="139" loading="lazy" decoding="async">
+                </a>
+                <figcaption>
+                    <strong>WS 11</strong>
+                    <span>2000 × 150 × 100 mm; 1900 × 150 × 100 mm; 1800 × 150 × 100 mm; 1000 × 150 × 100 mm; 900 × 150 × 100 mm; 600 × 150 × 100 mm</span>
+                </figcaption>
+            </figure>
+            <figure class="variant-model">
+                <a href="images/wheel-stopper-ws-12.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full WS 12 dimension drawing">
+                    <img class="stopper-illustration" src="images/wheel-stopper-ws-12.svg" alt="WS 12 dimension drawing: 2000 × 150 × 120 mm; 1900 × 150 × 120 mm; 1800 × 150 × 120 mm; 1000 × 150 × 120 mm; 900 × 150 × 120 mm; 600 × 150 × 120 mm" width="534" height="139" loading="lazy" decoding="async">
+                </a>
+                <figcaption>
+                    <strong>WS 12</strong>
+                    <span>2000 × 150 × 120 mm; 1900 × 150 × 120 mm; 1800 × 150 × 120 mm; 1000 × 150 × 120 mm; 900 × 150 × 120 mm; 600 × 150 × 120 mm</span>
+                </figcaption>
+            </figure>
+            <figure class="variant-model">
+                <a href="images/wheel-stopper-ws-13.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full WS 13 dimension drawing">
+                    <img class="stopper-illustration" src="images/wheel-stopper-ws-13.svg" alt="WS 13 dimension drawing: 2000 × 150 × 150 mm; 1900 × 150 × 150 mm; 1800 × 150 × 150 mm; 1000 × 150 × 150 mm; 900 × 150 × 150 mm; 600 × 150 × 150 mm" width="534" height="139" loading="lazy" decoding="async">
+                </a>
+                <figcaption>
+                    <strong>WS 13</strong>
+                    <span>2000 × 150 × 150 mm; 1900 × 150 × 150 mm; 1800 × 150 × 150 mm; 1000 × 150 × 150 mm; 900 × 150 × 150 mm; 600 × 150 × 150 mm</span>
+                </figcaption>
+            </figure>
+            <figure class="variant-model">
+                <a href="images/wheel-stopper-ws-14.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full WS 14 dimension drawing">
+                    <img class="stopper-illustration" src="images/wheel-stopper-ws-14.svg" alt="WS 14 dimension drawing: 2000 × 210 × 100 mm; 1900 × 210 × 100 mm; 1800 × 210 × 100 mm; 1000 × 210 × 100 mm; 900 × 210 × 100 mm; 600 × 210 × 100 mm" width="534" height="139" loading="lazy" decoding="async">
+                </a>
+                <figcaption>
+                    <strong>WS 14</strong>
+                    <span>2000 × 210 × 100 mm; 1900 × 210 × 100 mm; 1800 × 210 × 100 mm; 1000 × 210 × 100 mm; 900 × 210 × 100 mm; 600 × 210 × 100 mm</span>
+                </figcaption>
+            </figure>
+            <figure class="variant-model">
+                <a href="images/wheel-stopper-ws-15.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full WS 15 dimension drawing">
+                    <img class="stopper-illustration" src="images/wheel-stopper-ws-15.svg" alt="WS 15 dimension drawing: 2000 × 200 × 120 mm; 1900 × 200 × 120 mm; 1800 × 200 × 120 mm; 1000 × 200 × 120 mm; 900 × 200 × 120 mm; 600 × 200 × 120 mm" width="534" height="139" loading="lazy" decoding="async">
+                </a>
+                <figcaption>
+                    <strong>WS 15</strong>
+                    <span>2000 × 200 × 120 mm; 1900 × 200 × 120 mm; 1800 × 200 × 120 mm; 1000 × 200 × 120 mm; 900 × 200 × 120 mm; 600 × 200 × 120 mm</span>
+                </figcaption>
+            </figure>
+            <figure class="variant-model">
+                <a href="images/wheel-stopper-ws-16.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full WS 16 dimension drawing">
+                    <img class="stopper-illustration" src="images/wheel-stopper-ws-16.svg" alt="WS 16 dimension drawing: 2000 × 200 × 150 mm; 1900 × 200 × 150 mm; 1800 × 200 × 150 mm; 1000 × 200 × 150 mm; 900 × 200 × 150 mm; 600 × 200 × 150 mm" width="534" height="139" loading="lazy" decoding="async">
+                </a>
+                <figcaption>
+                    <strong>WS 16</strong>
+                    <span>2000 × 200 × 150 mm; 1900 × 200 × 150 mm; 1800 × 200 × 150 mm; 1000 × 200 × 150 mm; 900 × 200 × 150 mm; 600 × 200 × 150 mm</span>
+                </figcaption>
+            </figure>
+            <figure class="variant-model">
+                <a href="images/wheel-stopper-ws-17.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full WS 17 dimension drawing">
+                    <img class="stopper-illustration" src="images/wheel-stopper-ws-17.svg" alt="WS 17 dimension drawing: 2000 × 225 × 120/40 mm; 1900 × 225 × 120/40 mm; 1800 × 225 × 120/40 mm; 1000 × 225 × 120/40 mm; 900 × 225 × 120/40 mm; 600 × 225 × 120/40 mm" width="534" height="139" loading="lazy" decoding="async">
+                </a>
+                <figcaption>
+                    <strong>WS 17</strong>
+                    <span>2000 × 225 × 120/40 mm; 1900 × 225 × 120/40 mm; 1800 × 225 × 120/40 mm; 1000 × 225 × 120/40 mm; 900 × 225 × 120/40 mm; 600 × 225 × 120/40 mm</span>
+                </figcaption>
+            </figure>
+            <figure class="variant-model">
+                <a href="images/wheel-stopper-ws-18.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full WS 18 dimension drawing">
+                    <img class="stopper-illustration" src="images/wheel-stopper-ws-18.svg" alt="WS 18 dimension drawing: 2000 × 250 × 140 mm; 1900 × 250 × 140 mm; 1800 × 250 × 140 mm; 1000 × 250 × 140 mm; 900 × 250 × 140 mm; 600 × 250 × 140 mm" width="534" height="139" loading="lazy" decoding="async">
+                </a>
+                <figcaption>
+                    <strong>WS 18</strong>
+                    <span>2000 × 250 × 140 mm; 1900 × 250 × 140 mm; 1800 × 250 × 140 mm; 1000 × 250 × 140 mm; 900 × 250 × 140 mm; 600 × 250 × 140 mm</span>
+                </figcaption>
+            </figure>
+            <figure class="variant-model">
+                <a href="images/wheel-stopper-ws-19.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full WS 19 dimension drawing">
+                    <img class="stopper-illustration" src="images/wheel-stopper-ws-19.svg" alt="WS 19 dimension drawing: 2000 × 200 × 150 mm; 1900 × 200 × 150 mm; 1830 × 130 × 100 mm; 1800 × 200 × 150 mm; 1000 × 200 × 150 mm; 600 × 200 × 150 mm" width="534" height="139" loading="lazy" decoding="async">
+                </a>
+                <figcaption>
+                    <strong>WS 19</strong>
+                    <span>2000 × 200 × 150 mm; 1900 × 200 × 150 mm; 1830 × 130 × 100 mm; 1800 × 200 × 150 mm; 1000 × 200 × 150 mm; 600 × 200 × 150 mm</span>
+                </figcaption>
+            </figure>
+            <figure class="variant-model">
+                <a href="images/wheel-stopper-ws-20.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full WS 20 dimension drawing">
+                    <img class="stopper-illustration" src="images/wheel-stopper-ws-20.svg" alt="WS 20 dimension drawing: 2000 × 200 × 150 mm; 1900 × 200 × 150 mm; 1800 × 200 × 150 mm; 1000 × 200 × 150 mm; 900 × 200 × 150 mm; 600 × 200 × 150 mm" width="534" height="139" loading="lazy" decoding="async">
+                </a>
+                <figcaption>
+                    <strong>WS 20</strong>
+                    <span>2000 × 200 × 150 mm; 1900 × 200 × 150 mm; 1800 × 200 × 150 mm; 1000 × 200 × 150 mm; 900 × 200 × 150 mm; 600 × 200 × 150 mm</span>
+                </figcaption>
+            </figure>
+            <figure class="variant-model">
+                <a href="images/wheel-stopper-ws-21.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full WS 21 dimension drawing">
+                    <img class="stopper-illustration" src="images/wheel-stopper-ws-21.svg" alt="WS 21 dimension drawing: 1000 × 150 × 150 mm; 915 × 150 × 150 mm; 700 × 150 × 150 mm; 600 × 150 × 150 mm" width="534" height="139" loading="lazy" decoding="async">
+                </a>
+                <figcaption>
+                    <strong>WS 21</strong>
+                    <span>1000 × 150 × 150 mm; 915 × 150 × 150 mm; 700 × 150 × 150 mm; 600 × 150 × 150 mm</span>
+                </figcaption>
+            </figure>
+            <figure class="variant-model">
+                <a href="images/wheel-stopper-ws-22.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full WS 22 dimension drawing">
+                    <img class="stopper-illustration" src="images/wheel-stopper-ws-22.svg" alt="WS 22 dimension drawing: 1000 × 100 × 100 mm; 915 × 100 × 100 mm; 700 × 100 × 100 mm; 600 × 100 × 100 mm" width="534" height="139" loading="lazy" decoding="async">
+                </a>
+                <figcaption>
+                    <strong>WS 22</strong>
+                    <span>1000 × 100 × 100 mm; 915 × 100 × 100 mm; 700 × 100 × 100 mm; 600 × 100 × 100 mm</span>
+                </figcaption>
+            </figure>
         </div>
+
+        <h3 class="finish-heading">
+            TEXTURES, COLORS &amp; FINISHES.
+        </h3>
+
+        <div class="finish-table-wrap">
+            <table class="finish-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Texture / finish</th>
+                        <th scope="col">Size in mm (L × W × H)</th>
+                        <th scope="col">Color</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Shot blast</td>
+                        <td>2000 × 150 × 100</td>
+                        <td>Grey</td>
+                    </tr>
+                    <tr>
+                        <td>Polished</td>
+                        <td>1800 × 150 × 100</td>
+                        <td rowspan="5">Other colors as per requirements</td>
+                    </tr>
+                    <tr>
+                        <td>Honed</td>
+                        <td>900 × 150 × 100</td>
+                    </tr>
+                    <tr>
+                        <td>Rubbed</td>
+                        <td>600 × 150 × 100</td>
+                    </tr>
+                    <tr>
+                        <td>Acid etched</td>
+                        <td rowspan="2">Any other sizes are possible</td>
+                    </tr>
+                    <tr>
+                        <td>Smooth</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="dimension-note">
+            Alcon offers wheel stoppers in standard and customizable sizes, with
+            colors available as required. The size/finish details and original
+            model drawings are from Alcon's
+            <a class="source-link" href="https://www.alcon.ae/products/precast-concrete-wheel-stoppers/" target="_blank" rel="noopener noreferrer">precast concrete wheel-stopper product page</a>.
+        </p>
 
     </section>
 
@@ -1186,59 +1412,34 @@
 
 
         <div class="application-grid">
-
-
-            <div class="application">
-
-                <div class="application-index">
-                    01
-                </div>
-
-                <div class="application-name">
-                    PARKING AREAS
-                </div>
-
-            </div>
-
-
-            <div class="application">
-
-                <div class="application-index">
-                    02
-                </div>
-
-                <div class="application-name">
-                    PARKING BAYS
-                </div>
-
-            </div>
-
-
-            <div class="application">
-
-                <div class="application-index">
-                    03
-                </div>
-
-                <div class="application-name">
-                    SITE ACCESS
-                </div>
-
-            </div>
-
-
-            <div class="application">
-
-                <div class="application-index">
-                    04
-                </div>
-
-                <div class="application-name">
-                    VEHICLE ZONES
-                </div>
-
-            </div>
-
+            <figure class="application">
+                <img class="application-photo" src="images/wheel-stopper-application-1.jpg" alt="Alcon precast concrete wheel stopper application photo 1" width="600" height="470" loading="lazy" decoding="async">
+                <figcaption class="application-index">01</figcaption>
+            </figure>
+            <figure class="application">
+                <img class="application-photo" src="images/wheel-stopper-application-2.jpg" alt="Alcon precast concrete wheel stopper application photo 2" width="600" height="470" loading="lazy" decoding="async">
+                <figcaption class="application-index">02</figcaption>
+            </figure>
+            <figure class="application">
+                <img class="application-photo" src="images/wheel-stopper-application-3.jpg" alt="Alcon precast concrete wheel stopper application photo 3" width="600" height="470" loading="lazy" decoding="async">
+                <figcaption class="application-index">03</figcaption>
+            </figure>
+            <figure class="application">
+                <img class="application-photo" src="images/wheel-stopper-application-4.jpg" alt="Alcon precast concrete wheel stopper application photo 4" width="600" height="470" loading="lazy" decoding="async">
+                <figcaption class="application-index">04</figcaption>
+            </figure>
+            <figure class="application">
+                <img class="application-photo" src="images/wheel-stopper-application-5.jpg" alt="Alcon precast concrete wheel stopper application photo 5" width="600" height="470" loading="lazy" decoding="async">
+                <figcaption class="application-index">05</figcaption>
+            </figure>
+            <figure class="application">
+                <img class="application-photo" src="images/wheel-stopper-application-6.jpg" alt="Alcon precast concrete wheel stopper application photo 6" width="600" height="470" loading="lazy" decoding="async">
+                <figcaption class="application-index">06</figcaption>
+            </figure>
+            <figure class="application">
+                <img class="application-photo" src="images/wheel-stopper-application-7.jpg" alt="Alcon precast concrete wheel stopper application photo 7" width="600" height="470" loading="lazy" decoding="async">
+                <figcaption class="application-index">07</figcaption>
+            </figure>
         </div>
 
     </section>

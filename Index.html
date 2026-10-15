@@ -253,6 +253,24 @@
             -webkit-text-stroke: 1px rgba(255,255,255,0.3);
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
 
         /* =========================
            NAVIGATION
@@ -2384,6 +2402,15 @@
 
         document.addEventListener("DOMContentLoaded", () => {
 
+            const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+            const shouldReduceMotion = reduceMotionQuery.matches;
+
+            if (shouldReduceMotion) {
+                document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+                document.querySelectorAll('.parallax-img').forEach(img => {
+                    img.style.transform = 'none';
+                });
+            }
 
             /* =========================
                TORCH
@@ -2403,11 +2430,12 @@
 
             let currentGlitchScale = 0;
 
+
             const lensEase = 0.12;
+            let pointerFrame = null;
 
 
             const moveTorch = (event) => {
-
                 if (!torch) return;
 
                 torch.style.opacity = '1';
@@ -2421,18 +2449,28 @@
             };
 
 
-            document.addEventListener(
-                'pointermove',
-                moveTorch,
-                { passive: true }
-            );
+            const pointerMoveListener = (event) => {
+                if (pointerFrame) return;
 
+                pointerFrame = requestAnimationFrame(() => {
+                    moveTorch(event);
+                    pointerFrame = null;
+                });
+            };
 
-            document.addEventListener(
-                'pointerdown',
-                moveTorch,
-                { passive: true }
-            );
+            if (!shouldReduceMotion) {
+                document.addEventListener(
+                    'pointermove',
+                    pointerMoveListener,
+                    { passive: true }
+                );
+
+                document.addEventListener(
+                    'pointerdown',
+                    pointerMoveListener,
+                    { passive: true }
+                );
+            }
 
 
             document.addEventListener(
@@ -2506,303 +2544,305 @@
             );
 
 
-            /* =========================
-               SMOOTH SCROLL
-            ========================= */
+            if (!shouldReduceMotion) {
+                /* =========================
+                   SMOOTH SCROLL
+                ========================= */
 
-            const smoothContent =
-                document.getElementById('smooth-content');
+                const smoothContent =
+                    document.getElementById('smooth-content');
 
-            const parallaxImages =
-                document.querySelectorAll('.parallax-img');
+                const parallaxImages =
+                    document.querySelectorAll('.parallax-img');
 
-            const skewContainers =
-                document.querySelectorAll('.skew-container');
+                const skewContainers =
+                    document.querySelectorAll('.skew-container');
 
-            const variableFonts =
-                document.querySelectorAll('.variable-weight');
-
-
-            let currentY = 0;
-            let targetY = 0;
-
-            const scrollEase = 0.075;
+                const variableFonts =
+                    document.querySelectorAll('.variable-weight');
 
 
-            if ('scrollRestoration' in history) {
-                history.scrollRestoration = 'manual';
-            }
+                let currentY = 0;
+                let targetY = 0;
+
+                const scrollEase = 0.075;
 
 
-            let pendingHashNavigation =
-                Boolean(window.location.hash);
+                if ('scrollRestoration' in history) {
+                    history.scrollRestoration = 'manual';
+                }
 
 
-            /* =========================
-               HASH NAVIGATION
-            ========================= */
-
-            const routeToHash = () => {
-
-                const targetElement =
-                    document.querySelector(window.location.hash);
-
-                if (!targetElement) return;
+                let pendingHashNavigation =
+                    Boolean(window.location.hash);
 
 
-                const headerOffset =
-                    document.getElementById('header').offsetHeight + 24;
+                /* =========================
+                   HASH NAVIGATION
+                ========================= */
+
+                const routeToHash = () => {
+
+                    const targetElement =
+                        document.querySelector(window.location.hash);
+
+                    if (!targetElement) return;
 
 
-                const hashPosition =
-                    Math.max(
-                        0,
-                        targetElement.offsetTop - headerOffset
-                    );
+                    const headerOffset =
+                        document.getElementById('header').offsetHeight + 24;
 
 
-                currentY = hashPosition;
-                targetY = hashPosition;
-
-
-                smoothContent.style.transform =
-                    `translate3d(0, -${hashPosition}px, 0)`;
-
-
-                window.scrollTo({
-                    top: hashPosition,
-                    behavior: 'auto'
-                });
-
-            };
-
-
-            /* =========================
-               RESIZE OBSERVER
-            ========================= */
-
-            const resizeObserver =
-                new ResizeObserver(() => {
-
-                    document.body.style.height =
-                        `${smoothContent.getBoundingClientRect().height}px`;
-
-
-                    if (pendingHashNavigation) {
-
-                        pendingHashNavigation = false;
-
-                        requestAnimationFrame(
-                            routeToHash
+                    const hashPosition =
+                        Math.max(
+                            0,
+                            targetElement.offsetTop - headerOffset
                         );
 
-                    }
 
-                });
-
-
-            resizeObserver.observe(smoothContent);
+                    currentY = hashPosition;
+                    targetY = hashPosition;
 
 
-            /* =========================
-               HASH CHANGE
-            ========================= */
+                    smoothContent.style.transform =
+                        `translate3d(0, -${hashPosition}px, 0)`;
 
-            window.addEventListener(
-                'hashchange',
-                () => {
 
-                    pendingHashNavigation = true;
+                    window.scrollTo({
+                        top: hashPosition,
+                        behavior: 'auto'
+                    });
 
-                    requestAnimationFrame(() => {
+                };
+
+
+                /* =========================
+                   RESIZE OBSERVER
+                ========================= */
+
+                const resizeObserver =
+                    new ResizeObserver(() => {
+
+                        document.body.style.height =
+                            `${smoothContent.getBoundingClientRect().height}px`;
+
 
                         if (pendingHashNavigation) {
 
                             pendingHashNavigation = false;
 
-                            routeToHash();
+                            requestAnimationFrame(
+                                routeToHash
+                            );
 
                         }
 
                     });
 
-                }
-            );
+
+                resizeObserver.observe(smoothContent);
 
 
-            /* =========================
-               MAIN RENDER LOOP
-            ========================= */
+                /* =========================
+                   HASH CHANGE
+                ========================= */
 
-            function processUnifiedRenderLoop() {
+                window.addEventListener(
+                    'hashchange',
+                    () => {
 
+                        pendingHashNavigation = true;
 
-                /* MOUSE SPEED */
+                        requestAnimationFrame(() => {
 
-                let dx =
-                    mouseX - lastMouseX;
+                            if (pendingHashNavigation) {
 
-                let dy =
-                    mouseY - lastMouseY;
+                                pendingHashNavigation = false;
 
+                                routeToHash();
 
-                let mouseSpeed =
-                    Math.sqrt(dx * dx + dy * dy);
+                            }
 
+                        });
 
-                lastMouseX = mouseX;
-                lastMouseY = mouseY;
-
-
-                /* TORCH GLITCH */
-
-                let targetGlitch =
-                    Math.min(mouseSpeed * 1.5, 45);
+                    }
+                );
 
 
-                currentGlitchScale +=
-                    (targetGlitch - currentGlitchScale) * 0.15;
+                /* =========================
+                   MAIN RENDER LOOP
+                ========================= */
+
+                function processUnifiedRenderLoop() {
 
 
-                if (torchDisplacement) {
+                    /* MOUSE SPEED */
 
-                    torchDisplacement.setAttribute(
-                        'scale',
-                        currentGlitchScale
-                    );
+                    let dx =
+                        mouseX - lastMouseX;
 
-                }
-
-
-                /* TORCH POSITION */
-
-                lensX +=
-                    (mouseX - lensX) * lensEase;
-
-                lensY +=
-                    (mouseY - lensY) * lensEase;
+                    let dy =
+                        mouseY - lastMouseY;
 
 
-                torch.style.left =
-                    `${lensX}px`;
-
-                torch.style.top =
-                    `${lensY}px`;
+                    let mouseSpeed =
+                        Math.sqrt(dx * dx + dy * dy);
 
 
-                /* SCROLL */
-
-                targetY =
-                    window.scrollY;
+                    lastMouseX = mouseX;
+                    lastMouseY = mouseY;
 
 
-                currentY +=
-                    (targetY - currentY) * scrollEase;
+                    /* TORCH GLITCH */
+
+                    let targetGlitch =
+                        Math.min(mouseSpeed * 1.5, 45);
 
 
-                let scrollVelocity =
-                    targetY - currentY;
+                    currentGlitchScale +=
+                        (targetGlitch - currentGlitchScale) * 0.15;
 
 
-                /* SKEW */
+                    if (torchDisplacement) {
 
-                let calculatedSkew =
-                    Math.max(
-                        -4,
+                        torchDisplacement.setAttribute(
+                            'scale',
+                            currentGlitchScale
+                        );
+
+                    }
+
+
+                    /* TORCH POSITION */
+
+                    lensX +=
+                        (mouseX - lensX) * lensEase;
+
+                    lensY +=
+                        (mouseY - lensY) * lensEase;
+
+
+                    torch.style.left =
+                        `${lensX}px`;
+
+                    torch.style.top =
+                        `${lensY}px`;
+
+
+                    /* SCROLL */
+
+                    targetY =
+                        window.scrollY;
+
+
+                    currentY +=
+                        (targetY - currentY) * scrollEase;
+
+
+                    let scrollVelocity =
+                        targetY - currentY;
+
+
+                    /* SKEW */
+
+                    let calculatedSkew =
+                        Math.max(
+                            -4,
+                            Math.min(
+                                4,
+                                scrollVelocity * 0.015
+                            )
+                        );
+
+
+                    /* VARIABLE FONT */
+
+                    let fontWeight =
+                        400 +
                         Math.min(
-                            4,
-                            scrollVelocity * 0.015
-                        )
-                    );
+                            Math.abs(scrollVelocity * 5),
+                            300
+                        );
 
 
-                /* VARIABLE FONT */
+                    /* CONTENT POSITION */
 
-                let fontWeight =
-                    400 +
-                    Math.min(
-                        Math.abs(scrollVelocity * 5),
-                        300
-                    );
+                    smoothContent.style.transform =
+                        `translate3d(0, -${currentY}px, 0)`;
 
 
-                /* CONTENT POSITION */
+                    /* SKEW */
 
-                smoothContent.style.transform =
-                    `translate3d(0, -${currentY}px, 0)`;
+                    skewContainers.forEach(
+                        container => {
 
-
-                /* SKEW */
-
-                skewContainers.forEach(
-                    container => {
-
-                        container.style.transform =
-                            `skewY(${calculatedSkew * 0.4}deg)`;
-
-                    }
-                );
-
-
-                /* FONT WEIGHT */
-
-                variableFonts.forEach(
-                    fontEl => {
-
-                        fontEl.style.fontVariationSettings =
-                            `"wght" ${fontWeight}`;
-
-                    }
-                );
-
-
-                /* PARALLAX */
-
-                const viewHeight =
-                    window.innerHeight;
-
-
-                parallaxImages.forEach(
-                    img => {
-
-                        const parentWrap =
-                            img.parentElement;
-
-                        const rect =
-                            parentWrap.getBoundingClientRect();
-
-
-                        if (
-                            rect.top < viewHeight &&
-                            rect.bottom > 0
-                        ) {
-
-                            const relativeShift =
-                                (
-                                    (rect.top - viewHeight) /
-                                    (viewHeight + rect.height)
-                                ) * 40;
-
-
-                            img.style.transform =
-                                `scale(1.25) translate3d(0, ${relativeShift}px, 0)`;
+                            container.style.transform =
+                                `skewY(${calculatedSkew * 0.4}deg)`;
 
                         }
+                    );
 
-                    }
-                );
+
+                    /* FONT WEIGHT */
+
+                    variableFonts.forEach(
+                        fontEl => {
+
+                            fontEl.style.fontVariationSettings =
+                                `"wght" ${fontWeight}`;
+
+                        }
+                    );
+
+
+                    /* PARALLAX */
+
+                    const viewHeight =
+                        window.innerHeight;
+
+
+                    parallaxImages.forEach(
+                        img => {
+
+                            const parentWrap =
+                                img.parentElement;
+
+                            const rect =
+                                parentWrap.getBoundingClientRect();
+
+
+                            if (
+                                rect.top < viewHeight &&
+                                rect.bottom > 0
+                            ) {
+
+                                const relativeShift =
+                                    (
+                                        (rect.top - viewHeight) /
+                                        (viewHeight + rect.height)
+                                    ) * 40;
+
+
+                                img.style.transform =
+                                    `scale(1.25) translate3d(0, ${relativeShift}px, 0)`;
+
+                            }
+
+                        }
+                    );
+
+
+                    requestAnimationFrame(
+                        processUnifiedRenderLoop
+                    );
+
+                }
 
 
                 requestAnimationFrame(
                     processUnifiedRenderLoop
                 );
-
             }
-
-
-            requestAnimationFrame(
-                processUnifiedRenderLoop
-            );
 
 
             /* =========================

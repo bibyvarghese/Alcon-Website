@@ -422,6 +422,16 @@
             background-repeat: no-repeat;
         }
 
+        @media (max-width: 767px) {
+            .company-hero-bg {
+                background-position: center, 70% center;
+            }
+
+            .hero2-bg {
+                background-position: center, 45% center;
+            }
+        }
+
     </style>
 
     <link rel="stylesheet" href="privacy-modal.css">
@@ -479,7 +489,7 @@
     <header class="fixed top-0 left-0 w-full z-50 bg-black/25 backdrop-blur-xl border-b border-white/10 px-6 md:px-12 py-3 transition-all duration-300 pointer-events-none" id="header">
 
         <div
-            class="max-w-screen-2xl mx-auto grid grid-cols-[1fr_auto_1fr] items-center h-16 pointer-events-auto"
+            class="max-w-screen-2xl mx-auto grid grid-cols-[1fr_auto] grid-rows-[52px_28px] items-center md:grid-cols-[1fr_auto_1fr] md:grid-rows-1 md:h-16 pointer-events-auto"
         >
 
             <!-- LOGO -->
@@ -506,7 +516,7 @@
             <!-- DESKTOP NAV -->
 
             <nav
-                class="hidden md:flex items-center gap-12 text-[11px] font-medium tracking-[0.25em] uppercase"
+                class="col-span-2 flex items-center justify-center gap-5 pb-1 text-[9px] font-medium tracking-[0.12em] uppercase md:col-span-1 md:gap-12 md:pb-0 md:text-[11px] md:tracking-[0.25em]"
             >
 
                 <a
@@ -535,7 +545,7 @@
 
             <!-- HEADER RIGHT -->
 
-            <div class="flex items-center justify-self-end gap-6">
+            <div class="col-start-2 row-start-1 flex items-center justify-self-end gap-6 md:col-auto md:row-auto">
 
                 <a
                     href="#contact"
@@ -2089,7 +2099,7 @@
                             <!-- SPACER -->
 
                             <a
-                                href="space.html"
+                                href="spacer.html"
                                 class="block py-12 border-b border-white/10 group hover:bg-white/[0.03] transition-colors reveal delay-300"
                             >
 
@@ -2192,7 +2202,7 @@
 
             <footer
                 id="contact"
-                class="skew-container py-32 px-6 relative overflow-hidden z-10 border-t border-white/10"
+                class="skew-container py-16 px-6 relative overflow-hidden z-10 border-t border-white/10 md:py-32"
             >
 
                 <div
@@ -2232,7 +2242,7 @@
                 <!-- SOCIAL MEDIA -->
 
                 <div
-                    class="mx-auto mt-16 flex w-full max-w-2xl items-center justify-center gap-2 sm:gap-8"
+                    class="mx-auto mt-16 grid w-full max-w-2xl grid-cols-2 items-center justify-items-center gap-x-6 gap-y-5 sm:flex sm:justify-center sm:gap-8"
                 >
 
                     <!-- INSTAGRAM -->
@@ -2242,13 +2252,13 @@
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Instagram"
-                        class="flex h-10 min-w-0 flex-1 items-center justify-center opacity-70 transition-opacity hover:opacity-100"
+                        class="flex h-10 items-center justify-center opacity-70 transition-opacity hover:opacity-100"
                     >
 
                         <img
                             src="images/instagram.svg"
                             alt="Instagram"
-                            class="block h-[26px] max-w-full object-contain brightness-0 invert"
+                            class="block h-5 w-auto max-w-full object-contain brightness-0 invert sm:h-[26px]"
                             loading="lazy"
                             decoding="async"
                         >
@@ -2263,13 +2273,13 @@
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="LinkedIn"
-                        class="flex h-10 min-w-0 flex-1 items-center justify-center opacity-70 transition-opacity hover:opacity-100"
+                        class="flex h-10 items-center justify-center opacity-70 transition-opacity hover:opacity-100"
                     >
 
                         <img
                             src="images/linkedin.svg"
                             alt="LinkedIn"
-                            class="block h-[26px] max-w-full object-contain brightness-0 invert"
+                            class="block h-5 w-auto max-w-full object-contain brightness-0 invert sm:h-[26px]"
                             loading="lazy"
                             decoding="async"
                         >
@@ -2284,13 +2294,13 @@
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="WhatsApp"
-                        class="flex h-10 min-w-0 flex-1 items-center justify-center opacity-70 transition-opacity hover:opacity-100"
+                        class="col-span-2 flex h-10 items-center justify-center opacity-70 transition-opacity hover:opacity-100 sm:col-span-1"
                     >
 
                         <img
                             src="images/whatsapp.svg"
                             alt="WhatsApp"
-                            class="block h-[26px] max-w-full object-contain brightness-0 invert"
+                            class="block h-5 w-auto max-w-full object-contain brightness-0 invert sm:h-[26px]"
                             loading="lazy"
                             decoding="async"
                         >
@@ -2303,7 +2313,7 @@
                 <!-- FOOTER BOTTOM -->
 
                 <div
-                    class="max-w-screen-2xl mx-auto mt-32 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted uppercase tracking-widest reveal relative z-10"
+                    class="max-w-screen-2xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted uppercase tracking-widest reveal relative z-10 md:mt-32"
                 >
 
                     <p>
@@ -3023,5 +3033,6 @@
 
     <script src="privacy-modal.js"></script>
 
+    <script src="site-signature.js"></script>
 </body>
 </html>

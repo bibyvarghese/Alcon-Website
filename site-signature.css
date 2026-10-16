@@ -1,0 +1,50 @@
+.site-signature {
+    box-sizing: border-box;
+    display: flex;
+    max-width: 96rem;
+    justify-content: flex-end;
+    margin: 1.5rem auto 0;
+    padding: 1rem 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-signature img {
+    display: block;
+    width: min(10rem, 40vw);
+    max-height: 4rem;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+}
+
+footer.site-signature-only-footer {
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer:has(> .site-signature) {
+    padding-bottom: 0.75rem;
+}
+
+@media (max-width: 767px) {
+    footer .flex {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    footer > div > div {
+        justify-content: center;
+    }
+
+    .site-signature {
+        justify-content: center;
+        margin-top: 0.75rem;
+        padding-top: 0.5rem;
+    }
+
+    .site-signature img {
+        max-height: 3rem;
+    }
+}

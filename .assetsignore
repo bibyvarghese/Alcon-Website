@@ -1,0 +1,14 @@
+.git/
+.wrangler/
+node_modules/
+.env*
+.gitignore
+.htaccess
+.assetsignore
+wrangler.toml
+package*.json
+server.js
+Docker/
+tailwind.config.js
+styles/tailwind.input.css
+images/grc.mp4

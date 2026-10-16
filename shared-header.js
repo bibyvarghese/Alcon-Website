@@ -8,7 +8,7 @@
         document.body.insertAdjacentHTML('afterbegin', `
             <header id="header" class="shared-site-header">
                 <div class="shared-site-header__inner">
-                    <a class="shared-site-header__logo" href="Index.html" aria-label="Alcon home"><img src="images/logo.webp" alt="Alcon Logo"></a>
+                    <a class="shared-site-header__logo" href="/" aria-label="Alcon home"><img src="images/logo.webp" alt="Alcon Logo"></a>
                     <nav class="shared-site-header__nav" aria-label="Primary navigation">
                         <a href="/#about">About Us</a>
                         <a href="/#products">Capabilities</a>

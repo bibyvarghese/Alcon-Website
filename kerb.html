@@ -1,236 +1,1374 @@
+
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth bg-[#0a0a0a] text-white">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Wet-cast kerbstones and heavy-duty concrete wheel stoppers by Alcon, with natural stone textures and granitic finishes for Dubai, UAE projects.">
+
+    <title>Kerbstones & Wheel Stoppers | ALCON Dubai</title>
+    <meta name="description" content="Explore Alcon Dubai's concrete kerbstones, Trief kerbs and wheel stoppers in architectural finishes for roads, parking areas and landscaping.">
+    <meta name="theme-color" content="#0a0a0a">
+
     <link rel="canonical" href="https://new.alcon.ae/kerb.html">
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://new.alcon.ae/kerb.html">
     <meta property="og:title" content="Kerbstones & Wheel Stoppers | ALCON Dubai">
-    <meta property="og:description" content="Wet cast concrete kerbstones and parking wheel stops featuring natural architectural stone finishes.">
-    <meta property="og:image" content="https://new.alcon.ae/images/hero-bg2.webp">
-    <meta property="og:image:alt" content="Concrete kerbstones and wheel stoppers by Alcon">
+    <meta property="og:description" content="Concrete kerbstones and architectural surface finishes by Alcon Dubai.">
+    <meta property="og:image" content="https://new.alcon.ae/images/Kerb.JPG">
+
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Kerbstones & Wheel Stoppers | ALCON Dubai">
-    <meta name="twitter:description" content="Wet cast concrete kerbstones and parking wheel stops featuring natural architectural stone finishes.">
-    <meta name="twitter:image" content="https://new.alcon.ae/images/hero-bg2.webp">
-    <title>Kerbstones & Wheel Stoppers | ALCON Dubai</title>
+
     <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
     <link rel="stylesheet" href="styles/tailwind.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
+    <link rel="stylesheet" href="privacy-modal.css">
+    <link rel="stylesheet" href="gallery-effects.css">
+    <link rel="stylesheet" href="shared-header.css">
+
     <style>
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0a0a; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        :root {
+            color-scheme: dark;
+            --black: #0a0a0a;
+            --surface: #111111;
+            --surface-hover: #171717;
+            --border: #292929;
+            --white: #ffffff;
+            --muted: #a3a3a3;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--black);
+        }
+
+        body {
+            margin: 0;
+            overflow-x: clip;
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        ::selection {
+            background: white;
+            color: black;
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #383838;
+            border-radius: 10px;
+        }
+
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.55);
+        }
+
+        /* HEADER */
+
+        #header {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* HERO */
+
+        .gallery-hero {
+            position: relative;
+            isolation: isolate;
+            display: flex;
+            min-height: 85vh;
+            min-height: 85svh;
+            align-items: flex-end;
+            padding: 160px 5vw 76px;
+            overflow: hidden;
+            background: var(--black);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+        }
+
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(
+                0deg,
+                rgba(10, 10, 10, 1) 0%,
+                rgba(10, 10, 10, 0.82) 22%,
+                rgba(10, 10, 10, 0.25) 65%,
+                rgba(10, 10, 10, 0.16) 100%
+            );
+        }
+
+        .hero-inner {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .hero-eyebrow {
+            margin: 0 0 22px;
+            color: #d0d0d0;
+            font-size: 11px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            margin: 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(4rem, 10.5vw, 10rem);
+            font-weight: 500;
+            line-height: 0.86;
+            letter-spacing: -0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero-bottom {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 35px;
+            margin-top: 38px;
+        }
+
+        .hero-description {
+            max-width: 600px;
+            margin: 0;
+            color: #c2c2c2;
+            font-size: clamp(14px, 1.2vw, 17px);
+            font-weight: 300;
+            line-height: 1.9;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .hero-tag {
+            padding: 10px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 50px;
+            color: #fff;
+            font-size: 9px;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* REVEAL ANIMATIONS */
 
         .reveal {
             opacity: 0;
-            transform: translateY(60px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
+            transform: translateY(25px);
+            transition:
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
-        .delay-100 { transition-delay: 100ms; }
 
-        .img-zoom-container { overflow: hidden; border-radius: 0.5rem; }
-        .img-zoom { transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
-        .group:hover .img-zoom { transform: scale(1.08); }
-        .text-outline { color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); }
+        .delay-100 {
+            transition-delay: 100ms;
+        }
+
+        .delay-200 {
+            transition-delay: 200ms;
+        }
+
+        /* PRODUCT CATALOGUE */
+
+        .kerb-catalogue {
+            padding: 95px 5vw 110px;
+            background: var(--black);
+            color: #fff;
+        }
+
+        .catalogue-inner {
+            width: 100%;
+            max-width: 1450px;
+            margin: 0 auto;
+        }
+
+        .catalogue-intro {
+            margin-bottom: 68px;
+        }
+
+        .catalogue-eyebrow {
+            margin: 0 0 16px;
+            color: #929292;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+
+        .catalogue-heading {
+            margin: 0;
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -0.065em;
+        }
+
+        .catalogue-subtitle {
+            max-width: 640px;
+            margin: 22px 0 0;
+            color: #999;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.9;
+        }
+
+        /* PRODUCT ROWS */
+
+        .kerb-row {
+            margin: 0 0 65px;
+            padding: 0 0 55px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .kerb-row h2,
+        .finishes-panel h2 {
+            margin: 0 0 28px;
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .kerb-row h2::after,
+        .finishes-panel h2::after {
+            display: block;
+            width: 38px;
+            height: 1px;
+            margin-top: 14px;
+            background: #777;
+            content: "";
+        }
+
+        .kerb-content {
+            display: grid;
+            grid-template-columns:
+                minmax(0, 0.95fr)
+                minmax(0, 1.05fr)
+                minmax(0, 1.2fr);
+            align-items: center;
+            gap: 35px;
+        }
+
+        /* SVG PRODUCT IMAGES */
+
+        .kerb-image {
+            display: flex;
+            min-width: 0;
+            min-height: 230px;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid #222;
+        }
+
+        .kerb-image svg {
+            display: block;
+            width: 100%;
+            max-width: 330px;
+            height: 250px;
+            padding: 10px;
+            overflow: visible;
+            transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+        }
+
+        .kerb-image:hover svg {
+            transform: scale(1.045);
+        }
+
+        .kerb-content > p {
+            margin: 0;
+            color: #aaa;
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 2;
+        }
+
+        /* DIMENSIONS TABLE */
+
+        .kerb-table-wrap {
+            width: 100%;
+            min-width: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .kerb-table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #ddd;
+            font-size: 11px;
+            line-height: 1.5;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .kerb-table th {
+            padding: 13px 8px;
+            border: 1px solid #333;
+            background: #222;
+            color: #fff;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+        }
+
+        .kerb-table td {
+            padding: 11px 8px;
+            border: 1px solid #292929;
+            background: #101010;
+            color: #ccc;
+        }
+
+        .kerb-table tbody tr:nth-child(even) td {
+            background: #171717;
+        }
+
+        .kerb-table tbody tr:hover td {
+            background: #252525;
+            color: #fff;
+        }
+
+        .table-note {
+            margin: 12px 0 0;
+            color: #888;
+            font-size: 10px;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* TRIEF + FINISHES */
+
+        .kerb-bottom-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            align-items: start;
+            gap: 55px;
+        }
+
+        .trief-row {
+            margin: 0;
+            padding: 28px;
+            border: 1px solid #292929;
+            background: #101010;
+        }
+
+        .trief-row .kerb-content {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 22px;
+        }
+
+        .trief-row .kerb-image,
+        .trief-row .kerb-table-wrap {
+            grid-column: 1 / -1;
+        }
+
+        .trief-row .kerb-image svg {
+            height: 270px;
+        }
+
+        /* SURFACE FINISHES */
+
+        .finishes-panel {
+            min-width: 0;
+            padding: 28px 0;
+            background: transparent;
+        }
+
+        .finish-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .finish-grid figure {
+            min-width: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .finish-grid img {
+            width: 100%;
+            aspect-ratio: 1.2;
+            object-fit: cover;
+            background: #141414;
+            border: 1px solid #292929;
+            transition:
+                transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+                border-color 0.3s ease;
+        }
+
+        .finish-grid figure:hover img {
+            transform: scale(1.035);
+            border-color: #555;
+        }
+
+        .finish-grid figcaption {
+            margin-top: 13px;
+            color: #bbb;
+            font-size: 10px;
+            letter-spacing: 0.13em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* FOOTER */
+
+        .site-footer {
+            padding: 110px 5vw 30px;
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        .footer-inner {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .footer-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-title {
+            margin: 0 0 24px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(4rem, 11vw, 9rem);
+            font-weight: 400;
+            line-height: 0.9;
+            letter-spacing: -0.08em;
+            text-transform: uppercase;
+        }
+
+        .footer-description {
+            margin: 0 0 35px;
+            color: #999;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .footer-email {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 17px 30px;
+            border: 1px solid #fff;
+            border-radius: 50px;
+            background: #fff;
+            color: #000;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .footer-email:hover {
+            background: transparent;
+            color: #fff;
+        }
+
+        .footer-socials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin: 50px 0 75px;
+        }
+
+        .footer-socials a {
+            display: flex;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #333;
+            border-radius: 50%;
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .footer-socials a:hover {
+            border-color: #888;
+            background: #1c1c1c;
+        }
+
+        .footer-socials img {
+            width: 19px;
+            height: 19px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 24px;
+            padding-top: 25px;
+            border-top: 1px solid #252525;
+            color: #888;
+            font-size: 9px;
+            line-height: 1.8;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-location {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-location svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        /* TABLET */
+
+        @media (max-width: 1050px) {
+            .kerb-content {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                gap: 22px;
+            }
+
+            .kerb-table-wrap {
+                grid-column: 1 / -1;
+            }
+
+            .kerb-bottom-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .trief-row .kerb-content {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+
+            .finishes-panel {
+                padding-top: 10px;
+            }
+
+            .finish-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 640px) {
+            .gallery-hero {
+                min-height: 80svh;
+                padding: 135px 20px 45px;
+            }
+
+            .hero-background img {
+                object-position: center;
+            }
+
+            .hero-title {
+                font-size: clamp(3.5rem, 15vw, 6rem);
+            }
+
+            .hero-eyebrow {
+                font-size: 9px;
+            }
+
+            .hero-bottom {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 24px;
+                margin-top: 28px;
+            }
+
+            .hero-description {
+                font-size: 13px;
+                line-height: 1.9;
+            }
+
+            .hero-tags {
+                justify-content: flex-start;
+                gap: 7px;
+            }
+
+            .hero-tag {
+                padding: 9px 11px;
+                font-size: 8px;
+            }
+
+            .kerb-catalogue {
+                padding: 65px 20px 75px;
+            }
+
+            .catalogue-intro {
+                margin-bottom: 45px;
+            }
+
+            .catalogue-heading {
+                font-size: clamp(2.4rem, 10vw, 4rem);
+            }
+
+            .catalogue-subtitle {
+                font-size: 13px;
+            }
+
+            .kerb-row {
+                margin-bottom: 42px;
+                padding-bottom: 38px;
+            }
+
+            .kerb-row h2,
+            .finishes-panel h2 {
+                font-size: 13px;
+            }
+
+            .kerb-content,
+            .trief-row .kerb-content {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 20px;
+            }
+
+            .kerb-image {
+                min-height: 210px;
+            }
+
+            .kerb-image svg {
+                height: 230px;
+            }
+
+            .kerb-content > p {
+                font-size: 12px;
+                line-height: 1.9;
+            }
+
+            .kerb-table-wrap,
+            .trief-row .kerb-table-wrap {
+                grid-column: auto;
+            }
+
+            .kerb-table {
+                min-width: 290px;
+                font-size: 10px;
+            }
+
+            .kerb-table th {
+                padding: 12px 6px;
+                font-size: 9px;
+            }
+
+            .kerb-table td {
+                padding: 10px 6px;
+            }
+
+            .trief-row {
+                padding: 20px;
+            }
+
+            .trief-row .kerb-image {
+                grid-column: auto;
+            }
+
+            .trief-row .kerb-image svg {
+                height: 240px;
+            }
+
+            .finish-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px;
+            }
+
+            .finish-grid figcaption {
+                font-size: 9px;
+            }
+
+            .site-footer {
+                padding: 75px 20px 25px;
+            }
+
+            .footer-title {
+                font-size: clamp(3.4rem, 14vw, 5.5rem);
+            }
+
+            .footer-description {
+                font-size: 13px;
+            }
+
+            .footer-socials {
+                margin: 42px 0 48px;
+            }
+
+            .footer-bottom {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-links {
+                justify-content: flex-start;
+                gap: 15px 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
     </style>
-    <link rel="stylesheet" href="privacy-modal.css">
-    <link rel="stylesheet" href="gallery-effects.css">
-    <link rel="stylesheet" href="shared-header.css">
 </head>
-<body class="antialiased selection:bg-white selection:text-black overflow-x-hidden">
 
-    <header class="fixed top-0 w-full z-50 mix-blend-difference px-6 py-8 transition-all duration-300" id="header">
-        <div class="max-w-screen-2xl mx-auto flex justify-between items-center">
-            <a href="/" class="font-display text-2xl font-bold tracking-tighter uppercase text-white flex items-center gap-4 group">
-                <svg class="w-6 h-6 transform group-hover:-translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+<body class="antialiased">
+
+    <!-- HEADER -->
+
+    <header id="header" class="fixed top-0 left-0 z-50 w-full px-6 py-6 md:px-12 md:py-8">
+        <div class="mx-auto flex max-w-screen-2xl items-center justify-between">
+
+            <a href="/"
+               aria-label="Alcon home"
+               class="group flex items-center gap-3 font-display text-2xl font-bold uppercase tracking-tighter text-white">
+
+                <svg class="h-6 w-6 transition-transform duration-300 group-hover:-translate-x-2"
+                     fill="none"
+                     stroke="currentColor"
+                     viewBox="0 0 24 24"
+                     aria-hidden="true">
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
+
                 Alcon.
             </a>
-            <a href="/#contact" class="hidden md:inline-flex text-sm font-medium uppercase tracking-wider border-b border-white pb-1 hover:text-muted hover:border-muted transition-colors text-white">
+
+            <a href="/#contact"
+               class="hidden border-b border-white pb-1 text-sm font-medium uppercase tracking-wider text-white transition-colors hover:text-neutral-300 md:inline-flex">
                 Let's Talk
             </a>
+
         </div>
     </header>
 
-    <section class="gallery-hero relative min-h-[60vh] flex flex-col justify-end px-6 pb-20 pt-40 border-b border-white/10">
-        <div class="max-w-screen-2xl mx-auto w-full z-10">
-            <h1 class="font-display font-medium uppercase tracking-tighter text-[10vw] md:text-[8vw] leading-[0.85] reveal">
-                Edges & <br>
-                <span class="text-outline">Anchors.</span>
-            </h1>
-            <div class="mt-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 reveal delay-100">
-                <p class="max-w-xl text-lg text-muted font-light leading-relaxed">
-                    Wet cast concrete kerbstones and wheel stoppers featuring natural architectural finishes matching granite or natural stone slates. Available in polished, honed, acid-etched, and shot-blasted profiles.
+    <main>
+
+        <!-- HERO -->
+
+        <section class="gallery-hero" aria-labelledby="hero-title">
+
+            <div class="hero-background" aria-hidden="true">
+                <img src="images/Kerb.JPG" alt="" fetchpriority="high">
+            </div>
+
+            <div class="hero-overlay" aria-hidden="true"></div>
+
+            <div class="hero-inner">
+
+                <p class="hero-eyebrow reveal">
+                    Concrete Collection / Architectural Elements
                 </p>
-                <div class="flex flex-wrap gap-2 text-xs uppercase tracking-widest">
-                    <span class="px-4 py-2 border border-white/20 rounded-full">Shot-Blasted</span>
-                    <span class="px-4 py-2 border border-white/20 rounded-full">Acid-Etched</span>
-                    <span class="px-4 py-2 border border-white/20 rounded-full">Honed</span>
-                    <span class="px-4 py-2 border border-white/20 rounded-full">Polished</span>
+
+                <h1 id="hero-title" class="hero-title reveal">
+                    Edges &amp;<br>
+                    <span class="text-outline">Anchors.</span>
+                </h1>
+
+                <div class="hero-bottom reveal delay-100">
+
+                    <p class="hero-description">
+                        Wet-cast concrete kerbstones and wheel stoppers.
+                        Defined by precision, built for durability, and
+                        finished to complement contemporary landscapes.
+                    </p>
+
+                    <div class="hero-tags">
+                        <span class="hero-tag">Shot-Blasted</span>
+                        <span class="hero-tag">Acid-Etched</span>
+                        <span class="hero-tag">Honed</span>
+                        <span class="hero-tag">Polished</span>
+                    </div>
+
                 </div>
             </div>
-        </div>
-        <div class="absolute top-0 right-0 w-1/2 h-[60vh] bg-gradient-to-l from-white/5 to-transparent blur-3xl -z-10 rounded-full"></div>
-    </section>
+        </section>
 
-    <section class="py-32 px-6">
-        <div class="max-w-screen-2xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 md:gap-y-32">
-                
-                <!-- Item 1 -->
-                <div class="group block reveal">
-                    <div class="img-zoom-container aspect-[4/3] mb-8 bg-[#111]">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186f5f7?auto=format&fit=crop&w=1200&q=80" alt="Architectural Granite Edge Kerb" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async" width="1200" height="800" sizes="(max-width: 768px) 100vw, 50vw">
-                    </div>
-                    <div>
-                        <h3 class="text-3xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors">Architectural Edge Kerbstones</h3>
-                        <p class="text-muted text-sm uppercase tracking-widest">Shot-Blasted Granite Finish</p>
-                    </div>
+        <!-- PRODUCT CATALOGUE -->
+
+        <section id="catalogue" class="kerb-catalogue">
+
+            <div class="catalogue-inner">
+
+                <div class="catalogue-intro reveal">
+                    <p class="catalogue-eyebrow">Alcon Concrete Products</p>
+                    <h2 class="catalogue-heading">Kerbstone Collection</h2>
+                    <p class="catalogue-subtitle">
+                        A considered collection of concrete kerb profiles
+                        for infrastructure, parking areas, pedestrian zones
+                        and architectural landscaping.
+                    </p>
                 </div>
 
-                <!-- Item 2 -->
-                <div class="group block reveal md:mt-32">
-                    <div class="img-zoom-container aspect-[4/5] mb-8 bg-[#111]">
-                        <img src="https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=1200&q=80" alt="Precast Parking Wheel Stopper" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async" width="1200" height="800" sizes="(max-width: 768px) 100vw, 50vw">
-                    </div>
-                    <div>
-                        <h3 class="text-3xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors">Precision Wheel Stoppers</h3>
-                        <p class="text-muted text-sm uppercase tracking-widest">Acid-Etched Basalt Texture</p>
-                    </div>
-                </div>
+                <!-- HALF BATTERED KERB -->
 
-                <!-- Item 3 -->
-                <div class="group block reveal">
-                    <div class="img-zoom-container aspect-[4/5] mb-8 bg-[#111]">
-                        <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1200&q=80" alt="Radius and Transition Kerb" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async" width="1200" height="800" sizes="(max-width: 768px) 100vw, 50vw">
-                    </div>
-                    <div>
-                        <h3 class="text-3xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors">Radius & Transition Kerbs</h3>
-                        <p class="text-muted text-sm uppercase tracking-widest">Smooth Honed Finish</p>
-                    </div>
-                </div>
+                <article class="kerb-row reveal">
 
-                <!-- Item 4 -->
-                <div class="group block reveal md:mt-32">
-                    <div class="img-zoom-container aspect-[4/3] mb-8 bg-[#111]">
-                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" alt="Heavy Duty Demarcation Stop" class="w-full h-full object-cover img-zoom grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async" width="1200" height="800" sizes="(max-width: 768px) 100vw, 50vw">
+                    <h2>Half Battered</h2>
+
+                    <div class="kerb-content">
+
+                        <div class="kerb-image">
+                            <svg width="260" height="240"
+                                 viewBox="0 0 260 240"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 role="img"
+                                 aria-label="Half battered kerb illustration">
+
+                                <path d="M 100 215 L 230 150 L 245 160 L 115 225 Z"
+                                      fill="#555" opacity="0.4"/>
+
+                                <g stroke="#777" stroke-width="2" stroke-linejoin="round">
+                                    <path d="M 50 190 L 50 90 L 80 105 L 100 145 L 100 215 Z"
+                                          fill="#64748b"/>
+                                    <path d="M 50 90 L 80 105 L 210 40 L 180 25 Z"
+                                          fill="#e2e8f0"/>
+                                    <path d="M 80 105 L 100 145 L 230 80 L 210 40 Z"
+                                          fill="#cbd5e1"/>
+                                    <path d="M 100 145 L 100 215 L 230 150 L 230 80 Z"
+                                          fill="#94a3b8"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <p>
+                            Half-battered kerbs provide a sloping face for
+                            road edges, footpaths and landscaped boundaries.
+                            The angled profile creates a defined transition
+                            between different surface levels.
+                        </p>
+
+                        <div class="kerb-table-wrap">
+                            <table class="kerb-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Length (mm)</th>
+                                        <th scope="col">Width (mm)</th>
+                                        <th scope="col">Height (mm)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>600</td><td>100–200</td><td>300</td></tr>
+                                    <tr><td>600</td><td>100–200</td><td>350</td></tr>
+                                    <tr><td>600</td><td>100–200</td><td>400</td></tr>
+                                    <tr><td>600</td><td>100–200</td><td>450</td></tr>
+                                    <tr><td>915</td><td>100–150</td><td>150</td></tr>
+                                    <tr><td>915</td><td>100–150</td><td>200</td></tr>
+                                    <tr><td>915</td><td>100–150</td><td>255</td></tr>
+                                    <tr><td>915</td><td>100–150</td><td>305</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
-                    <div>
-                        <h3 class="text-3xl font-display font-medium mb-2 group-hover:text-gray-300 transition-colors">Heavy-Duty Boundary Demarcation</h3>
-                        <p class="text-muted text-sm uppercase tracking-widest">Polished Architectural Profile</p>
+                </article>
+
+                <!-- BULL NOSE KERB -->
+
+                <article class="kerb-row reveal">
+
+                    <h2>Bull Nose</h2>
+
+                    <div class="kerb-content">
+
+                        <div class="kerb-image">
+                            <svg width="260" height="240"
+                                 viewBox="0 0 260 240"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 role="img"
+                                 aria-label="Bull nose kerb illustration">
+
+                                <path d="M 100 215 L 230 150 L 245 160 L 115 225 Z"
+                                      fill="#555" opacity="0.4"/>
+
+                                <g stroke="#777" stroke-width="2" stroke-linejoin="round">
+                                    <path d="M 50 190 L 50 90 L 75 102.5 C 90 110, 100 120, 100 135 L 100 215 Z"
+                                          fill="#64748b"/>
+                                    <path d="M 50 90 L 75 102.5 L 205 37.5 L 180 25 Z"
+                                          fill="#e2e8f0"/>
+                                    <path d="M 75 102.5 C 90 110, 100 120, 100 135 L 230 70 C 230 55, 220 45, 205 37.5 Z"
+                                          fill="#cbd5e1"/>
+                                    <path d="M 100 135 L 100 215 L 230 150 L 230 70 Z"
+                                          fill="#94a3b8"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <p>
+                            Bull nose kerbs feature a rounded front edge for
+                            a softer transition between adjoining surfaces.
+                            They are suitable for walkways, pedestrian zones
+                            and landscape edging.
+                        </p>
+
+                        <div class="kerb-table-wrap">
+                            <table class="kerb-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Length (mm)</th>
+                                        <th scope="col">Width (mm)</th>
+                                        <th scope="col">Height (mm)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>600</td><td>100–200</td><td>300</td></tr>
+                                    <tr><td>600</td><td>100–200</td><td>350</td></tr>
+                                    <tr><td>600</td><td>100–200</td><td>400</td></tr>
+                                    <tr><td>600</td><td>100–200</td><td>450</td></tr>
+                                    <tr><td>915</td><td>100–150</td><td>150</td></tr>
+                                    <tr><td>915</td><td>100–150</td><td>200</td></tr>
+                                    <tr><td>915</td><td>100–150</td><td>255</td></tr>
+                                    <tr><td>915</td><td>100–150</td><td>305</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
+                </article>
+
+                <!-- FLUSH KERB -->
+
+                <article class="kerb-row reveal">
+
+                    <h2>Flush Kerb</h2>
+
+                    <div class="kerb-content">
+
+                        <div class="kerb-image">
+                            <svg width="260" height="240"
+                                 viewBox="0 0 260 240"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 role="img"
+                                 aria-label="Flush kerb illustration">
+
+                                <path d="M 100 215 L 230 150 L 245 160 L 115 225 Z"
+                                      fill="#555" opacity="0.4"/>
+
+                                <g stroke="#777" stroke-width="2" stroke-linejoin="round">
+                                    <path d="M 50 190 L 50 90 L 100 115 L 100 215 Z"
+                                          fill="#64748b"/>
+                                    <path d="M 50 90 L 100 115 L 230 50 L 180 25 Z"
+                                          fill="#e2e8f0"/>
+                                    <path d="M 100 115 L 100 215 L 230 150 L 230 50 Z"
+                                          fill="#94a3b8"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <p>
+                            Flush kerbs are designed to create a level
+                            transition between adjoining paved surfaces.
+                            They are suitable for accessible routes,
+                            pedestrian crossings and shared spaces.
+                        </p>
+
+                        <div class="kerb-table-wrap">
+                            <table class="kerb-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Length (mm)</th>
+                                        <th scope="col">Width (mm)</th>
+                                        <th scope="col">Height (mm)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>600</td><td>100–200</td><td>300</td></tr>
+                                    <tr><td>600</td><td>100–200</td><td>350</td></tr>
+                                    <tr><td>600</td><td>100–200</td><td>400</td></tr>
+                                    <tr><td>600</td><td>100–200</td><td>450</td></tr>
+                                    <tr><td>915</td><td>100–150</td><td>150</td></tr>
+                                    <tr><td>915</td><td>100–150</td><td>200</td></tr>
+                                    <tr><td>915</td><td>100–150</td><td>255</td></tr>
+                                    <tr><td>915</td><td>100–150</td><td>305</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- TRIEF KERB + SURFACE FINISHES -->
+
+                <div class="kerb-bottom-grid">
+
+                    <article class="kerb-row trief-row reveal">
+
+                        <h2>Trief Kerb</h2>
+
+                        <div class="kerb-content">
+
+                            <div class="kerb-image">
+                                <svg width="260" height="260"
+                                     viewBox="0 0 260 260"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     role="img"
+                                     aria-label="Trief kerb illustration">
+
+                                    <path d="M 100 225 L 230 160 L 245 170 L 115 235 Z"
+                                          fill="#555" opacity="0.4"/>
+
+                                    <g stroke="#777" stroke-width="2" stroke-linejoin="round">
+                                        <path d="M 30 190 L 30 80 L 70 100 L 70 130 L 50 120 L 50 150 L 100 175 L 100 225 Z"
+                                              fill="#64748b"/>
+                                        <path d="M 30 80 L 70 100 L 200 35 L 160 15 Z"
+                                              fill="#e2e8f0"/>
+                                        <path d="M 50 150 L 100 175 L 230 110 L 180 85 Z"
+                                              fill="#e2e8f0"/>
+                                        <path d="M 50 120 L 50 150 L 180 85 L 180 55 Z"
+                                              fill="#94a3b8"/>
+                                        <path d="M 70 100 L 70 130 L 200 65 L 200 35 Z"
+                                              fill="#94a3b8"/>
+                                        <path d="M 100 175 L 100 225 L 230 160 L 230 110 Z"
+                                              fill="#94a3b8"/>
+                                    </g>
+                                </svg>
+                            </div>
+
+                            <p>
+                                Trief kerbs have a specialist-shaped profile
+                                for applications that require robust roadside
+                                and traffic-management solutions. Confirm the
+                                required profile and dimensions against
+                                project specifications.
+                            </p>
+
+                            <div class="kerb-table-wrap">
+                                <table class="kerb-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Length (mm)</th>
+                                            <th scope="col">Width (mm)</th>
+                                            <th scope="col">Height (mm)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>600</td><td>280/390</td><td>400</td></tr>
+                                        <tr><td>500</td><td>500</td><td>350</td></tr>
+                                    </tbody>
+                                </table>
+
+                                <p class="table-note">
+                                    Confirm dimensions with the project
+                                    specifications before ordering.
+                                </p>
+                            </div>
+
+                        </div>
+                    </article>
+
+                    <!-- SURFACE FINISHES -->
+
+                    <section class="finishes-panel reveal"
+                             aria-labelledby="finishes-title">
+
+                        <h2 id="finishes-title">Surface Finishes</h2>
+
+                        <div class="finish-grid">
+
+                            <figure>
+                                <img src="images/finish-shot-blast.webp"
+                                     alt="Shot-blasted concrete finish"
+                                     loading="lazy"
+                                     decoding="async">
+                                <figcaption>Shot Blast</figcaption>
+                            </figure>
+
+                            <figure>
+                                <img src="images/finish-honed.webp"
+                                     alt="Honed concrete finish"
+                                     loading="lazy"
+                                     decoding="async">
+                                <figcaption>Honed</figcaption>
+                            </figure>
+
+                            <figure>
+                                <img src="images/finish-normal.webp"
+                                     alt="Normal concrete finish"
+                                     loading="lazy"
+                                     decoding="async">
+                                <figcaption>Normal</figcaption>
+                            </figure>
+
+                            <figure>
+                                <img src="images/finish-polished.webp"
+                                     alt="Polished concrete finish"
+                                     loading="lazy"
+                                     decoding="async">
+                                <figcaption>Polished</figcaption>
+                            </figure>
+
+                        </div>
+                    </section>
+
                 </div>
 
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer id="contact" class="skew-container py-32 px-6 relative overflow-hidden z-10 border-t border-white/10">
-                <div class="max-w-screen-2xl mx-auto flex flex-col items-center text-center z-10 relative">
-                    <h2 class="font-display text-[10vw] md:text-[8vw] font-medium tracking-tighter uppercase leading-none mb-8 reveal variable-weight">
-                        Let's Build.
-                    </h2>
-                    <p class="text-xl text-muted mb-12 reveal delay-100">Start your next iconic project with Alcon.</p>
-                    
-                    <a href="mailto:sales@alcon.ae" 
-                       class="reveal delay-200 inline-flex items-center justify-center bg-white text-black font-medium text-sm uppercase tracking-widest px-10 py-5 rounded-full hover:scale-105 transition-transform duration-300 relative z-20">
-                        sales@alcon.ae
+    <!-- FOOTER -->
+
+    <footer id="contact" class="site-footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-main">
+
+                <h2 class="footer-title reveal">Let's Build.</h2>
+
+                <p class="footer-description reveal delay-100">
+                    Start your next iconic project with Alcon.
+                </p>
+
+                <a href="mailto:sales@alcon.ae"
+                   class="footer-email reveal delay-200">
+                    sales@alcon.ae
+                </a>
+
+            </div>
+
+            <nav class="footer-socials" aria-label="Social media">
+
+                <a href="https://www.instagram.com/alcon.ae"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Alcon Instagram">
+                    <img src="images/instagram.svg"
+                         alt=""
+                         width="19"
+                         height="19"
+                         loading="lazy">
+                </a>
+
+                <a href="https://www.linkedin.com/company/alconconcrete/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Alcon LinkedIn">
+                    <img src="images/linkedin.svg"
+                         alt=""
+                         width="19"
+                         height="19"
+                         loading="lazy">
+                </a>
+
+            </nav>
+
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; <span id="current-year">2026</span>
+                    Alcon Concrete Products LLC.
+                </p>
+
+                <nav class="footer-links" aria-label="Footer navigation">
+
+                    <a class="footer-location"
+                       href="https://www.google.com/maps/search/?api=1&query=Alcon+Concrete+Products+LLC+Dubai+Industrial+City"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <svg fill="none"
+                             stroke="currentColor"
+                             viewBox="0 0 24 24"
+                             aria-hidden="true">
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                            </path>
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z">
+                            </path>
+                        </svg>
+
+                        Dubai Industrial City
                     </a>
-                </div>
-                <!-- Social Media Icons -->
-<div class="flex flex-col items-center justify-center gap-12 mt-16">
 
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/alcon.ae"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Instagram"
-       class="inline-flex items-center opacity-70 hover:opacity-100 transition-opacity">
-       
-        <img src="images/instagram.svg"
-             alt="Instagram"
-             class="h-[26px] w-auto object-contain brightness-0 invert" loading="lazy" decoding="async" width="26" height="26" sizes="(max-width: 768px) 100vw, 50vw">
-    </a>
+                    <a href="tel:+97145474474">+971 4 5474474</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="privacy-policy.html" class="privacy-policy-trigger">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="/">Home</a>
 
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/company/alconconcrete/"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="LinkedIn"
-       class="inline-flex items-center opacity-70 hover:opacity-100 transition-opacity">
-       
-        <img src="images/linkedin.svg"
-             alt="LinkedIn"
-             class="h-[26px] w-auto object-contain brightness-0 invert" loading="lazy" decoding="async" width="26" height="26" sizes="(max-width: 768px) 100vw, 50vw">
-    </a>
+                </nav>
 
-</div>
-                
-                <div class="max-w-screen-2xl mx-auto mt-32 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted uppercase tracking-widest reveal relative z-10">
-                    <p>&copy; 2026 Alcon Concrete Products LLC.</p>
-                    <div class="flex flex-wrap items-center gap-6">
-                        <a href="https://www.google.com/maps/search/?api=1&query=Alcon+Concrete+Products+LLC+Dubai+Industrial+City" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           class="hover:text-white transition-colors relative z-20 flex items-center gap-1.5 group">
-                            <svg class="w-3.5 h-3.5 text-muted group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                            Dubai Industrial City
-                        </a>
-
-                        <a href="tel:+97145474474" 
-                           class="hover:text-white transition-colors relative z-20 flex items-center gap-1.5 group">
-                            <svg class="w-3.5 h-3.5 text-muted group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
-                            +971 4 5474474
-                        </a>
-                        <a href="careers.html" class="hover:text-white transition-colors relative z-20">Careers</a>
-                        <a href="careers.html" class="hover:text-white transition-colors border-b border-white/20 pb-1">Careers</a>
-                        <a href="privacy-policy.html" class="privacy-policy-trigger hover:text-white transition-colors border-b border-white/20 pb-1">Privacy</a>
-                        <a href="terms.html" class="hover:text-white transition-colors border-b border-white/20 pb-1">Terms</a>
-                        <a href="/" class="hover:text-white transition-colors border-b border-white/20 pb-1">Home</a>
-                    </div>
-                </div>
-            </footer>
-
+            </div>
         </div>
-    </div>
+    </footer>
 
-
+    <!-- PAGE SCRIPTS -->
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        obs.unobserve(entry.target);
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const elements = document.querySelectorAll(".reveal");
+
+            if ("IntersectionObserver" in window) {
+
+                const observer = new IntersectionObserver(
+                    function (entries, activeObserver) {
+
+                        entries.forEach(function (entry) {
+
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("active");
+                                activeObserver.unobserve(entry.target);
+                            }
+
+                        });
+
+                    },
+                    {
+                        rootMargin: "0px 0px -25px 0px",
+                        threshold: 0.05
                     }
+                );
+
+                elements.forEach(function (element) {
+                    observer.observe(element);
                 });
-            }, { root: null, rootMargin: '0px', threshold: 0.15 });
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            } else {
+
+                elements.forEach(function (element) {
+                    element.classList.add("active");
+                });
+
+            }
+
+            const year = document.getElementById("current-year");
+
+            if (year) {
+                year.textContent = new Date().getFullYear();
+            }
+
         });
     </script>
-    <script src="gallery-effects.js"></script>
-    <script src="shared-header.js"></script>
-    <script src="privacy-modal.js"></script>
-    <script src="site-signature.js"></script>
+
+    <script src="gallery-effects.js" defer></script>
+    <script src="shared-header.js" defer></script>
+    <script src="privacy-modal.js" defer></script>
+    <script src="site-signature.js" defer></script>
+
 </body>
 </html>

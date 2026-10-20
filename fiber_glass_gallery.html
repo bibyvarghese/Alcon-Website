@@ -239,9 +239,23 @@
             <!-- Hero Video Section -->
             <section class="skew-container relative min-h-[75vh] flex flex-col justify-end px-6 pb-20 pt-40 border-b border-white/10 overflow-hidden">
                 <div class="absolute inset-0 z-0">
-                <video autoplay muted loop playsinline preload="metadata"
-    class="absolute w-[75vh] h-[100vw] max-w-none object-contain opacity-100"
-    style="transform: rotate(90deg); transform-origin: center; left: 50%; top: 50%; translate: -50% -50%;">
+               <video
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    class="absolute w-screen h-screen max-w-none object-cover opacity-100"
+    style="
+        transform: translate(-50%, -50%) rotate(90deg);
+        transform-origin: center;
+        width: 100vh;
+        height: 100vw;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    "
+>
     <source src="images/grc.mp4" type="video/mp4">
 </video>
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent"></div>
